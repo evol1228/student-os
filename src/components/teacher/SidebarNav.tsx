@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutGrid, UserCheck, Megaphone, HelpCircle } from 'lucide-react';
+import { LayoutGrid, UserCheck, Megaphone, HelpCircle, Settings } from 'lucide-react';
 import { HELP_REQUESTS, SCHEDULE } from '../../lib/mockData.ts';
 import type { SidebarTab } from '../../lib/mockData.ts';
 
@@ -44,6 +44,33 @@ export default function SidebarNav({ activeTab, onTabChange }: SidebarNavProps) 
               </button>
             );
           })}
+
+          {/* Other section — Profile & Settings */}
+          <div className="text-xs font-bold text-[#050505]/40 mt-8 mb-3 px-4 uppercase tracking-widest">Other</div>
+          <button
+            onClick={() => onTabChange('profile')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeTab === 'profile'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/60 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <UserCheck size={18} />
+            Profile
+            {activeTab === 'profile' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
+          <button
+            onClick={() => onTabChange('settings')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeTab === 'settings'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/60 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <Settings size={18} />
+            Settings
+            {activeTab === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
         </nav>
 
         {/* Schedule — Pinned to Bottom */}

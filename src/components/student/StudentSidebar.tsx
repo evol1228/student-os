@@ -105,6 +105,33 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             My Files
             <ExternalLink size={12} className="ml-auto opacity-30" />
           </a>
+
+          {/* Other section — Profile & Settings */}
+          <div className="text-xs font-bold text-[#050505]/40 mt-8 mb-3 px-4 uppercase tracking-widest">Other</div>
+          <button
+            onClick={() => onViewChange('profile')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeView === 'profile'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <UserCheck size={18} />
+            Profile
+            {activeView === 'profile' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
+          <button
+            onClick={() => onViewChange('settings')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeView === 'settings'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <Settings size={18} />
+            Settings
+            {activeView === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
         </nav>
 
         {/* Quick Apps — external links, 3 items in a row */}
