@@ -70,32 +70,16 @@ const BackgroundMotion = () => {
 
 const ShootingStars = () => (
   <div className="absolute top-0 inset-x-0 h-[500px] md:h-[700px] overflow-hidden pointer-events-none z-0">
-    {/* Star 1 */}
-    <div className="absolute top-[8%] left-[-5%] w-[120px] md:w-[180px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/60 to-[#4ade80] rotate-[30deg] animate-shoot" style={{ animationDelay: '0s', animationDuration: '2s' }}>
+    <div className="absolute top-[8%] left-[-5%] w-[140px] md:w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/50 to-[#4ade80] rotate-[15deg] animate-shoot" style={{ animationDelay: '0s', animationDuration: '2.2s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[4px] md:h-[4px] bg-white rounded-full shadow-[0_0_8px_2px_#4ade80]" />
     </div>
-    {/* Star 2 */}
-    <div className="absolute top-[18%] left-[-8%] w-[150px] md:w-[220px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/50 to-[#4ade80] rotate-[40deg] animate-shoot" style={{ animationDelay: '0.8s', animationDuration: '2.5s' }}>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[5px] md:h-[5px] bg-white rounded-full shadow-[0_0_12px_3px_#4ade80]" />
+    <div className="absolute top-[20%] left-[-8%] w-[160px] md:w-[230px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/40 to-[#4ade80] rotate-[12deg] animate-shoot" style={{ animationDelay: '1.5s', animationDuration: '2.4s' }}>
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[5px] md:h-[5px] bg-white rounded-full shadow-[0_0_10px_3px_#4ade80]" />
     </div>
-    {/* Star 3 */}
-    <div className="absolute top-[5%] left-[15%] w-[80px] md:w-[120px] h-[1.5px] bg-gradient-to-r from-transparent via-[#066606]/40 to-[#4ade80]/80 rotate-[25deg] animate-shoot-slow" style={{ animationDelay: '1.5s', animationDuration: '3s' }}>
+    <div className="absolute top-[5%] left-[-3%] w-[100px] md:w-[150px] h-[1.5px] bg-gradient-to-r from-transparent via-[#066606]/35 to-[#4ade80]/80 rotate-[20deg] animate-shoot" style={{ animationDelay: '0.7s', animationDuration: '2s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] md:w-[3px] md:h-[3px] bg-white rounded-full shadow-[0_0_6px_1px_#4ade80]" />
     </div>
-    {/* Star 4 */}
-    <div className="absolute top-[12%] left-[-3%] w-[130px] md:w-[190px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/50 to-[#4ade80] rotate-[35deg] animate-shoot" style={{ animationDelay: '2.2s', animationDuration: '2.2s' }}>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[4px] md:h-[4px] bg-white rounded-full shadow-[0_0_8px_2px_#4ade80]" />
-    </div>
-    {/* Star 5 */}
-    <div className="absolute top-[25%] left-[-6%] w-[100px] md:w-[160px] h-[1.5px] bg-gradient-to-r from-transparent via-[#066606]/40 to-[#4ade80]/70 rotate-[20deg] animate-shoot" style={{ animationDelay: '3.2s', animationDuration: '1.8s' }}>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] md:w-[3px] md:h-[3px] bg-white rounded-full shadow-[0_0_6px_1px_#4ade80]" />
-    </div>
-    {/* Star 6 */}
-    <div className="absolute top-[3%] left-[30%] w-[60px] md:w-[100px] h-[1px] bg-gradient-to-r from-transparent via-[#066606]/30 to-[#4ade80]/60 rotate-[50deg] animate-shoot" style={{ animationDelay: '1s', animationDuration: '1.5s' }}>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] bg-white rounded-full shadow-[0_0_4px_1px_#4ade80]" />
-    </div>
-    {/* Star 7 */}
-    <div className="absolute top-[30%] left-[-10%] w-[180px] md:w-[250px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/30 to-[#4ade80] rotate-[20deg] animate-shoot-slow" style={{ animationDelay: '2.8s', animationDuration: '3.5s' }}>
+    <div className="absolute top-[28%] left-[-6%] w-[180px] md:w-[260px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/30 to-[#4ade80] rotate-[10deg] animate-shoot" style={{ animationDelay: '2.8s', animationDuration: '2.6s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[5px] md:h-[5px] bg-white rounded-full shadow-[0_0_10px_3px_#4ade80]" />
     </div>
   </div>
