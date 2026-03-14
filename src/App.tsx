@@ -498,6 +498,10 @@ const QuotesSlider = () => {
 
   // Render 3x for seamless wrap
   const tripled = [...quotes, ...quotes, ...quotes];
+  // Offset row 2 by half so the same review never appears in both rows at once
+  const halfLen = Math.floor(quotes.length / 2);
+  const row2Quotes = [...quotes.slice(halfLen), ...quotes.slice(0, halfLen)];
+  const tripledRow2 = [...row2Quotes, ...row2Quotes, ...row2Quotes];
 
   useEffect(() => {
     let animId: number;
@@ -567,7 +571,7 @@ const QuotesSlider = () => {
       {/* Row 2 - scrolls right */}
       <div className="overflow-hidden">
         <div ref={row2Ref} className="flex whitespace-nowrap" style={{ willChange: 'transform' }}>
-          {tripled.map((q, i) => <ReviewCard key={`b-${i}`} q={q} />)}
+          {tripledRow2.map((q, i) => <ReviewCard key={`b-${i}`} q={q} />)}
         </div>
       </div>
     </section>

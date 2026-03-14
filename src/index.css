@@ -7,8 +7,8 @@
   --color-brand-base: #fcf6e6;
   --color-brand-dark: #050505;
   --animate-slide: slide 40s linear infinite;
-  --animate-shoot: shoot 2.5s linear infinite backwards;
-  --animate-shoot-slow: shoot 3.5s linear infinite backwards;
+  --animate-shoot: shoot 6s linear infinite backwards;
+  --animate-shoot-slow: shoot 8s linear infinite backwards;
 
   @keyframes slide {
     from { transform: translateX(0); }
@@ -17,8 +17,9 @@
 
   @keyframes shoot {
     0% { transform: translateX(-100%); opacity: 0; }
-    5% { opacity: 0.9; }
-    85% { opacity: 0.7; }
+    2% { opacity: 0.9; }
+    25% { opacity: 0.7; }
+    30% { transform: translateX(1400px); opacity: 0; }
     100% { transform: translateX(1400px); opacity: 0; }
   }
 }
