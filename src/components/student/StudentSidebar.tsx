@@ -107,28 +107,7 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
           </a>
         </nav>
 
-        {/* Quick Apps — external links, 3 items in a row */}
-        <div className="p-4 border-t border-[#050505]/5">
-          <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Quick Apps</h4>
-          <div className="grid grid-cols-3 gap-2">
-            {QUICK_APPS_EXTERNAL.map(app => (
-              <motion.a
-                key={app.id}
-                href={app.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-                className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl border transition-shadow hover:shadow-md ${app.color}`}
-              >
-                <span className="text-xl">{app.icon}</span>
-                <span className="text-[10px] font-bold">{app.label}</span>
-              </motion.a>
-            ))}
-          </div>
-        </div>
-
-        {/* Other — Profile & Settings pinned to bottom */}
+        {/* Other — Profile & Settings */}
         <div className="border-t border-[#050505]/5 p-3 space-y-1">
           <div className="text-xs font-bold text-[#050505]/40 mb-2 px-4 uppercase tracking-widest">Other</div>
           <button
@@ -155,6 +134,27 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             Settings
             {activeView === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
           </button>
+        </div>
+
+        {/* Quick Apps — external links */}
+        <div className="p-4 border-t border-[#050505]/5">
+          <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Quick Apps</h4>
+          <div className="grid grid-cols-3 gap-2">
+            {QUICK_APPS_EXTERNAL.map(app => (
+              <motion.a
+                key={app.id}
+                href={app.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl border transition-shadow hover:shadow-md ${app.color}`}
+              >
+                <span className="text-xl">{app.icon}</span>
+                <span className="text-[10px] font-bold">{app.label}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
 
         {/* Logout */}
