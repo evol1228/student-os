@@ -49,7 +49,7 @@ export default function StudentDashboard() {
       <StudentSidebar user={user} activeView={activeView} onViewChange={setActiveView} onLogout={handleLogout} />
 
       {/* Column 2: Center Stage */}
-      <main className="flex-1 overflow-y-auto min-w-0">
+      <main className="flex-1 overflow-y-auto min-w-0 pb-28 lg:pb-0">
         <div className="max-w-3xl mx-auto px-6 py-6">
           <AnimatePresence mode="wait">
             {activeView === 'home' && (

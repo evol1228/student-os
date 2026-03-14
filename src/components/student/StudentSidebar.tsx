@@ -17,98 +17,146 @@ const QUICK_APPS_EXTERNAL = [
 
 export default function StudentSidebar({ user, activeView, onViewChange, onLogout }: StudentSidebarProps) {
   return (
-    <aside className="w-64 bg-white border-r border-[#050505]/5 hidden lg:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto">
-      {/* Profile Block */}
-      <div className="p-5 border-b border-[#050505]/5">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-11 h-11 bg-[#066606]/10 rounded-2xl flex items-center justify-center font-black text-[#066606] text-lg border border-[#066606]/10">
-            {user.name[0]}
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="w-64 bg-white border-r border-[#050505]/5 hidden lg:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto">
+        {/* Profile Block */}
+        <div className="p-5 border-b border-[#050505]/5">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-11 h-11 bg-[#066606]/10 rounded-2xl flex items-center justify-center font-black text-[#066606] text-lg border border-[#066606]/10">
+              {user.name[0]}
+            </div>
+            <div className="min-w-0">
+              <div className="text-sm font-bold truncate">{user.name}</div>
+              <div className="text-[10px] font-semibold text-[#050505]/40 uppercase tracking-widest">{user.role}</div>
+            </div>
           </div>
-          <div className="min-w-0">
-            <div className="text-sm font-bold truncate">{user.name}</div>
-            <div className="text-[10px] font-semibold text-[#050505]/40 uppercase tracking-widest">{user.role}</div>
+          <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full border border-green-200 w-fit">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-[11px] font-bold">Online</span>
           </div>
         </div>
-        <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full border border-green-200 w-fit">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-[11px] font-bold">Online</span>
-        </div>
-      </div>
 
-      {/* Navigation */}
-      <nav className="p-3 space-y-1 flex-1">
-        {/* Home — internal view */}
+        {/* Navigation */}
+        <nav className="p-3 space-y-1 flex-1">
+          {/* Home — internal view */}
+          <button
+            onClick={() => onViewChange('home')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeView === 'home'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <Home size={18} />
+            Home
+            {activeView === 'home' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
+
+          {/* Learn Log — internal view */}
+          <button
+            onClick={() => onViewChange('learnlog')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+              activeView === 'learnlog'
+                ? 'bg-[#066606]/10 text-[#066606]'
+                : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+            }`}
+          >
+            <BookOpen size={18} />
+            Learn Log
+            {activeView === 'learnlog' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          </button>
+
+          {/* My Files — external link */}
+          <a
+            href="https://drive.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]"
+          >
+            <FolderOpen size={18} />
+            My Files
+            <ExternalLink size={12} className="ml-auto opacity-30" />
+          </a>
+        </nav>
+
+        {/* Quick Apps — external links, 3 items in a row */}
+        <div className="p-4 border-t border-[#050505]/5">
+          <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Quick Apps</h4>
+          <div className="grid grid-cols-3 gap-2">
+            {QUICK_APPS_EXTERNAL.map(app => (
+              <motion.a
+                key={app.id}
+                href={app.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl border transition-shadow hover:shadow-md ${app.color}`}
+              >
+                <span className="text-xl">{app.icon}</span>
+                <span className="text-[10px] font-bold">{app.label}</span>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+
+        {/* Logout */}
+        <div className="p-3 border-t border-[#050505]/5">
+          <button
+            onClick={onLogout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm text-[#050505]/40 hover:bg-red-50 hover:text-red-500 transition-all"
+          >
+            <LogOut size={18} />
+            Log Out
+          </button>
+        </div>
+      </aside>
+
+      {/* Mobile/Tablet Bottom Navigation Bar */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#050505]/10 flex items-center justify-around px-4 py-3 z-40 pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
         <button
           onClick={() => onViewChange('home')}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
-            activeView === 'home'
-              ? 'bg-[#066606]/10 text-[#066606]'
-              : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+          className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all relative w-20 ${
+            activeView === 'home' ? 'text-[#066606]' : 'text-[#050505]/40 hover:text-[#050505]/70'
           }`}
         >
-          <Home size={18} />
-          Home
-          {activeView === 'home' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'home' ? 'bg-[#066606]/10' : ''}`}>
+            <Home size={22} />
+          </div>
+          <span className={`text-[10px] font-bold mt-1 ${activeView === 'home' ? 'text-[#066606]' : 'text-[#050505]/40'}`}>
+            Home
+          </span>
         </button>
 
-        {/* Learn Log — internal view */}
         <button
           onClick={() => onViewChange('learnlog')}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
-            activeView === 'learnlog'
-              ? 'bg-[#066606]/10 text-[#066606]'
-              : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+          className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all relative w-20 ${
+            activeView === 'learnlog' ? 'text-[#066606]' : 'text-[#050505]/40 hover:text-[#050505]/70'
           }`}
         >
-          <BookOpen size={18} />
-          Learn Log
-          {activeView === 'learnlog' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'learnlog' ? 'bg-[#066606]/10' : ''}`}>
+            <BookOpen size={22} />
+          </div>
+          <span className={`text-[10px] font-bold mt-1 ${activeView === 'learnlog' ? 'text-[#066606]' : 'text-[#050505]/40'}`}>
+            Learn Log
+          </span>
         </button>
 
-        {/* My Files — external link */}
         <a
           href="https://drive.google.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]"
+          className="flex flex-col items-center justify-center p-2 rounded-xl transition-all relative w-20 text-[#050505]/40 hover:text-[#050505]/70"
         >
-          <FolderOpen size={18} />
-          My Files
-          <ExternalLink size={12} className="ml-auto opacity-30" />
+          <div className="p-1.5 rounded-xl transition-colors">
+            <FolderOpen size={22} />
+          </div>
+          <span className="text-[10px] font-bold mt-1 flex items-center gap-0.5">
+            Files <ExternalLink size={8} />
+          </span>
         </a>
       </nav>
-
-      {/* Quick Apps — external links, 3 items in a row */}
-      <div className="p-4 border-t border-[#050505]/5">
-        <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Quick Apps</h4>
-        <div className="grid grid-cols-3 gap-2">
-          {QUICK_APPS_EXTERNAL.map(app => (
-            <motion.a
-              key={app.id}
-              href={app.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl border transition-shadow hover:shadow-md ${app.color}`}
-            >
-              <span className="text-xl">{app.icon}</span>
-              <span className="text-[10px] font-bold">{app.label}</span>
-            </motion.a>
-          ))}
-        </div>
-      </div>
-
-      {/* Logout */}
-      <div className="p-3 border-t border-[#050505]/5">
-        <button
-          onClick={onLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm text-[#050505]/40 hover:bg-red-50 hover:text-red-500 transition-all"
-        >
-          <LogOut size={18} />
-          Log Out
-        </button>
-      </div>
-    </aside>
+    </>
   );
 }

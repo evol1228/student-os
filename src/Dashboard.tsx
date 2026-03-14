@@ -69,7 +69,7 @@ export default function Dashboard() {
       <div className="flex flex-1 overflow-hidden">
         <SidebarNav activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <main className="flex-1 overflow-y-auto p-6 pb-32">
+        <main className="flex-1 overflow-y-auto p-6 pb-24 md:pb-6">
           <AnimatePresence mode="wait">
             {activeTab === 'grid' && (
               <LiveGrid roster={roster} onSelectStudent={setSelectedStudent} />

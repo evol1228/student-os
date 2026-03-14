@@ -215,7 +215,7 @@ const HeroSection = () => {
   <section className="pt-16 pb-12 md:pt-24 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
     <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
       <div className="flex-1 text-center lg:text-left z-10 w-full">
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-6 md:mb-8 leading-[1.05] uppercase">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter mb-6 md:mb-8 leading-[1.05] uppercase">
           {t('heroTitleOutline')} <br className="hidden sm:block"/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#066606] to-[#0a990a]">{t('heroTitleHighlight')}</span><br/>
           {t('heroTitleEnd')}
