@@ -102,7 +102,7 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]"
           >
             <FolderOpen size={18} />
-            My Files
+            <span className="underline decoration-black/20 underline-offset-2">My Files</span>
             <ExternalLink size={12} className="ml-auto opacity-30" />
           </a>
         </nav>

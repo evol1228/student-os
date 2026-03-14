@@ -5,7 +5,7 @@ import { STUDENT_SCHEDULE } from '../../lib/mockData.ts';
 
 export default function RightSidebar() {
   return (
-    <aside className="w-80 hidden xl:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto border-l border-[#050505]/5 bg-white">
+    <aside className="w-80 hidden xl:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto border-l border-[#050505]/5 bg-[#fcf6e6]">
 
       {/* Schedule Timeline */}
       <div className="p-5 flex-1">
