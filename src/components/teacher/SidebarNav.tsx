@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutGrid, UserCheck, Megaphone, HelpCircle, Settings } from 'lucide-react';
+import { LayoutGrid, UserCheck, Megaphone, HelpCircle, Settings, LogOut } from 'lucide-react';
 import { HELP_REQUESTS, SCHEDULE } from '../../lib/mockData.ts';
 import type { SidebarTab } from '../../lib/mockData.ts';
 
@@ -13,9 +13,10 @@ const SIDEBAR_TABS: { key: SidebarTab; icon: any; label: string }[] = [
 interface SidebarNavProps {
   activeTab: SidebarTab;
   onTabChange: (tab: SidebarTab) => void;
+  onLogout: () => void;
 }
 
-export default function SidebarNav({ activeTab, onTabChange }: SidebarNavProps) {
+export default function SidebarNav({ activeTab, onTabChange, onLogout }: SidebarNavProps) {
   return (
     <>
       <aside className="w-[260px] bg-white border-r border-[#050505]/5 flex-col hidden md:flex shrink-0">
@@ -93,6 +94,17 @@ export default function SidebarNav({ activeTab, onTabChange }: SidebarNavProps) 
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Logout */}
+        <div className="p-3 border-t border-[#050505]/5">
+          <button
+            onClick={onLogout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm text-[#050505]/40 hover:bg-red-50 hover:text-red-500 transition-all"
+          >
+            <LogOut size={18} />
+            Log Out
+          </button>
         </div>
       </aside>
 
