@@ -114,7 +114,7 @@ export const FEED_POSTS = [
   },
 ];
 
-export type SidebarTab = 'grid' | 'countin' | 'announcements' | 'help';
+export type SidebarTab = 'grid' | 'countin' | 'announcements' | 'help' | 'profile' | 'settings';
 
 // --- STUDENT DASHBOARD DATA ---
 

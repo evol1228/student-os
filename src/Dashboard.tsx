@@ -13,6 +13,7 @@ import AnnouncementsEditor from './components/teacher/AnnouncementsEditor.tsx';
 import HelpRequests from './components/teacher/HelpRequests.tsx';
 import FloatingDock from './components/teacher/FloatingDock.tsx';
 import ExamModal from './components/teacher/ExamModal.tsx';
+import { ProfileView, SettingsView } from './components/shared/ProfileSettings.tsx';
 
 export default function Dashboard() {
   const [selectedStudent, setSelectedStudent] = useState<any>(null);
@@ -64,6 +65,7 @@ export default function Dashboard() {
         lateCount={lateCount}
         user={user}
         onLogout={handleLogout}
+        onTabChange={setActiveTab}
       />
 
       <div className="flex flex-1 overflow-hidden">
@@ -82,6 +84,12 @@ export default function Dashboard() {
             )}
             {activeTab === 'help' && (
               <HelpRequests />
+            )}
+            {activeTab === 'profile' && (
+              <ProfileView user={user} />
+            )}
+            {activeTab === 'settings' && (
+              <SettingsView user={user} showSecurity={true} />
             )}
           </AnimatePresence>
         </main>

@@ -1,11 +1,12 @@
-import React from 'react';
-import { Home, BookOpen, FolderOpen, LogOut, ExternalLink } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { Home, BookOpen, FolderOpen, LogOut, ExternalLink, Settings, UserCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useToast } from '../../Toast.tsx';
 
 interface StudentSidebarProps {
   user: any;
-  activeView: 'home' | 'learnlog';
-  onViewChange: (view: 'home' | 'learnlog') => void;
+  activeView: 'home' | 'learnlog' | 'profile' | 'settings';
+  onViewChange: (view: 'home' | 'learnlog' | 'profile' | 'settings') => void;
   onLogout: () => void;
 }
 
@@ -16,18 +17,21 @@ const QUICK_APPS_EXTERNAL = [
 ];
 
 export default function StudentSidebar({ user, activeView, onViewChange, onLogout }: StudentSidebarProps) {
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const { showToast } = useToast();
+
   return (
     <>
       {/* Desktop Sidebar */}
       <aside className="w-64 bg-white border-r border-[#050505]/5 hidden lg:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto">
         {/* Profile Block */}
-        <div className="p-5 border-b border-[#050505]/5">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="p-5 border-b border-[#050505]/5 relative">
+          <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 mb-4 cursor-pointer group hover:bg-[#050505]/5 p-2 -m-2 rounded-xl transition">
             <div className="w-11 h-11 bg-[#066606]/10 rounded-2xl flex items-center justify-center font-black text-[#066606] text-lg border border-[#066606]/10">
               {user.name[0]}
             </div>
             <div className="min-w-0">
-              <div className="text-sm font-bold truncate">{user.name}</div>
+              <div className="text-sm font-bold truncate group-hover:text-[#066606] transition-colors">{user.name}</div>
               <div className="text-[10px] font-semibold text-[#050505]/40 uppercase tracking-widest">{user.role}</div>
             </div>
           </div>
@@ -35,6 +39,29 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-[11px] font-bold">Online</span>
           </div>
+
+          <AnimatePresence>
+            {isProfileOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.1 }}
+                className="absolute top-[80px] left-5 right-5 bg-white rounded-2xl shadow-xl border border-[#050505]/5 py-2 z-50 overflow-hidden"
+              >
+                <button onClick={() => { setIsProfileOpen(false); onViewChange('profile'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+                  <UserCheck size={16} className="opacity-50" /> Profile
+                </button>
+                <button onClick={() => { setIsProfileOpen(false); onViewChange('settings'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+                  <Settings size={16} className="opacity-50" /> Settings
+                </button>
+                <div className="h-px bg-[#050505]/5 my-1" />
+                <button onClick={() => { setIsProfileOpen(false); onLogout(); }} className="w-full text-left px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition flex items-center gap-3 text-sm font-bold text-[#050505]/60">
+                  <LogOut size={16} className="opacity-50" /> Log out
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Navigation */}

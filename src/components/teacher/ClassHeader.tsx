@@ -1,7 +1,8 @@
-import React from 'react';
-import { BookOpen, ChevronDown, Clock, LogOut } from 'lucide-react';
+import React, { useState } from 'react';
+import { BookOpen, ChevronDown, Clock, LogOut, Settings, UserCheck } from 'lucide-react';
 import { useToast } from '../../Toast.tsx';
 import { CLASSES } from '../../lib/mockData.ts';
+import type { SidebarTab } from '../../lib/mockData.ts';
 
 interface ClassHeaderProps {
   selectedClass: typeof CLASSES[0];
@@ -13,10 +14,12 @@ interface ClassHeaderProps {
   lateCount: number;
   user: any;
   onLogout: () => void;
+  onTabChange?: (tab: SidebarTab) => void;
 }
 
-export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, presentCount, absentCount, lateCount, user, onLogout }: ClassHeaderProps) {
+export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, presentCount, absentCount, lateCount, user, onLogout, onTabChange }: ClassHeaderProps) {
   const { showToast } = useToast();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
     <header className="h-[72px] bg-white border-b border-[#050505]/5 flex items-center justify-between px-6 sticky top-0 z-30 shrink-0">
@@ -75,15 +78,32 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
         </div>
       </div>
 
-      {/* Right: User + Logout */}
-      <div className="flex items-center gap-4">
-        <div className="text-right hidden sm:block">
-          <div className="text-sm font-bold">{user ? user.name : 'Mrs. Anderson'}</div>
-          <div className="text-[10px] font-bold text-[#066606] uppercase tracking-wider">{user?.role || 'Teacher'}</div>
+      {/* Right: User + Logout Dropdown */}
+      <div className="relative">
+        <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 cursor-pointer group p-1 pr-2 rounded-2xl hover:bg-[#050505]/5 transition">
+          <div className="text-right hidden sm:block">
+            <div className="text-sm font-bold">{user ? user.name : 'Mrs. Anderson'}</div>
+            <div className="text-[10px] font-bold text-[#066606] uppercase tracking-wider">{user?.role || 'Teacher'}</div>
+          </div>
+          <div className="w-10 h-10 rounded-full bg-[#066606]/10 flex items-center justify-center font-bold text-[#066606] border border-[#066606]/20">
+            {user ? user.name[0] : 'M'}
+          </div>
         </div>
-        <button onClick={onLogout} className="p-2 hover:bg-red-50 hover:text-red-500 rounded-xl transition-colors">
-          <LogOut size={20} className="opacity-50" />
-        </button>
+
+        {isProfileOpen && (
+          <div className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-xl border border-[#050505]/5 py-2 w-48 z-50 overflow-hidden">
+            <button onClick={() => { setIsProfileOpen(false); onTabChange?.('profile'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+              <UserCheck size={16} className="opacity-50" /> Profile
+            </button>
+            <button onClick={() => { setIsProfileOpen(false); onTabChange?.('settings'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+              <Settings size={16} className="opacity-50" /> Settings
+            </button>
+            <div className="h-px bg-[#050505]/5 my-1" />
+            <button onClick={() => { setIsProfileOpen(false); onLogout(); }} className="w-full text-left px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition flex items-center gap-3 text-sm font-bold text-[#050505]/60">
+              <LogOut size={16} className="opacity-50" /> Log out
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

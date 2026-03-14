@@ -80,6 +80,7 @@ export default function AdminDashboard() {
   };
 
   const [isRolePanelOpen, setRolePanelOpen] = useState(false);
+  const [isProfileMenuOpen, setProfileMenuOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [roles, setRoles] = useState(MOCK_ROLES);
   const { showToast } = useToast();
@@ -162,13 +163,37 @@ export default function AdminDashboard() {
               <Bell size={20} className="text-[#050505]/60" />
               <span className="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-red-500 border-2 border-[#fcf6e6]"></span>
             </button>
-            <div className="h-10 w-px bg-[#050505]/10 hidden sm:block mx-2" />
-            <div onClick={() => { handleTabClick('Profile', '/profile'); showToast('Opening Profile Details'); }} className="flex items-center gap-3 cursor-pointer group">
-              <div className="text-right hidden sm:block">
-                <div className="text-sm font-bold text-[#050505]">{user ? user.name : 'Linda Adora'}</div>
-                <div className="text-xs font-semibold text-[#066606] uppercase tracking-wider">{user ? user.role : 'IT Admin'}</div>
+            <div className="relative">
+              <div onClick={() => { setProfileMenuOpen(!isProfileMenuOpen); }} className="flex items-center gap-3 cursor-pointer group">
+                <div className="text-right hidden sm:block">
+                  <div className="text-sm font-bold text-[#050505]">{user ? user.name : 'Linda Adora'}</div>
+                  <div className="text-xs font-semibold text-[#066606] uppercase tracking-wider">{user ? user.role : 'IT Admin'}</div>
+                </div>
+                <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user ? user.name : 'Linda'}&backgroundColor=066606`} alt="Admin" className="w-10 h-10 rounded-full bg-[#fcf6e6] border border-[#050505]/10 group-hover:border-[#066606]/50 transition" />
               </div>
-              <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user ? user.name : 'Linda'}&backgroundColor=066606`} alt="Admin" className="w-10 h-10 rounded-full bg-[#fcf6e6] border border-[#050505]/10 group-hover:border-[#066606]/50 transition" />
+              
+              <AnimatePresence>
+                {isProfileMenuOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                    className="absolute top-full right-0 mt-3 w-48 bg-white rounded-2xl shadow-xl border border-[#050505]/5 py-2 z-50 overflow-hidden"
+                  >
+                    <button onClick={() => { setProfileMenuOpen(false); handleTabClick('Profile', '/profile'); showToast('Opening Profile Details'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+                      <UserCheck size={16} className="opacity-50" /> Profile
+                    </button>
+                    <button onClick={() => { setProfileMenuOpen(false); handleTabClick('Settings', '/settings'); showToast('Opening Settings'); }} className="w-full text-left px-4 py-2.5 hover:bg-[#fcf6e6]/50 transition flex items-center gap-3 text-sm font-semibold">
+                      <Settings size={16} className="opacity-50" /> Settings
+                    </button>
+                    <div className="h-px bg-[#050505]/5 my-1" />
+                    <button onClick={() => { setProfileMenuOpen(false); handleLogout(); }} className="w-full text-left px-4 py-2.5 hover:bg-red-50 hover:text-red-600 transition flex items-center gap-3 text-sm font-bold text-[#050505]/60">
+                      <LogOut size={16} className="opacity-50" /> Log out
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </header>

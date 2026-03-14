@@ -9,11 +9,12 @@ import SubjectTabs from './components/student/SubjectTabs.tsx';
 import FeedPost from './components/student/FeedPost.tsx';
 import RightSidebar from './components/student/RightSidebar.tsx';
 import HomeView from './components/student/HomeView.tsx';
+import { ProfileView, SettingsView } from './components/shared/ProfileSettings.tsx';
 
 export default function StudentDashboard() {
   const [user, setUser] = useState<any>(null);
   const [activeTab, setActiveTab] = useState('All');
-  const [activeView, setActiveView] = useState<'home' | 'learnlog'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'learnlog' | 'profile' | 'settings'>('home');
 
   // Countdown timer
   const [timeLeft, setTimeLeft] = useState(42 * 60);
@@ -89,6 +90,14 @@ export default function StudentDashboard() {
                   </motion.div>
                 </AnimatePresence>
               </motion.div>
+            )}
+
+            {activeView === 'profile' && (
+              <ProfileView user={user} />
+            )}
+
+            {activeView === 'settings' && (
+              <SettingsView user={user} showSecurity={false} />
             )}
           </AnimatePresence>
         </div>
