@@ -200,7 +200,7 @@ const Header = () => {
           <div className="shrink-0 flex items-center">
             {/* Mobile Log In */}
             <BeamButton onClick={handleAuthClick} className="h-8 px-4 text-xs !py-0 whitespace-nowrap">
-              {user ? 'Dashboard' : t('login')}
+              {t('login')}
             </BeamButton>
           </div>
         </div>
