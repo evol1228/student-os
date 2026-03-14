@@ -1,0 +1,106 @@
+import React, { useEffect, useState } from 'react';
+import { LogOut, Calendar, BookOpen, Clock, Activity, AlertCircle, FileText } from 'lucide-react';
+import { motion } from 'motion/react';
+import { useToast } from './Toast.tsx';
+
+const UPCOMING_CLASSES = [
+  { id: 1, name: "Math 101", teacher: "Carol Davis", time: "10:00 AM - 11:30 AM", room: "Room 302", active: true },
+  { id: 2, name: "Science 102", teacher: "Mr. Smith", time: "12:00 PM - 1:00 PM", room: "Lab 2", active: false },
+  { id: 3, name: "History 201", teacher: "Emma Wright", time: "1:30 PM - 3:00 PM", room: "Room 405", active: false },
+];
+
+export default function StudentDashboard() {
+  const [user, setUser] = useState<any>(null);
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    const raw = localStorage.getItem('user');
+    if (raw) {
+      setUser(JSON.parse(raw));
+    } else {
+      window.location.href = '/login';
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    window.location.href = '/';
+  };
+
+  if (!user) return null;
+
+  return (
+    <div className="min-h-screen bg-[#fcf6e6] text-[#050505] font-sans selection:bg-[#066606] selection:text-white p-6 pb-20">
+      <header className="max-w-4xl mx-auto mb-10 flex justify-between items-center mt-4 bg-white p-4 rounded-3xl shadow-sm border border-black/5">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-gray-100 rounded-full border border-black/10 flex items-center justify-center font-black text-xl text-[#066606]">
+            {user.name[0]}
+          </div>
+          <div>
+            <h1 className="text-xl font-bold tracking-tight">Hi, {user.name}</h1>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#050505]/40">{user.role}</p>
+          </div>
+        </div>
+        <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 font-bold text-sm text-[#050505]/60 hover:text-red-500 hover:bg-red-50 rounded-xl transition-colors">
+          <LogOut size={18} /> Logout
+        </button>
+      </header>
+
+      <main className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+          <Calendar className="text-[#066606]" /> Your Schedule
+        </h2>
+        
+        <div className="grid gap-4">
+          {UPCOMING_CLASSES.map((cls, i) => (
+            <motion.div 
+              key={cls.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className={`p-6 rounded-[2rem] border transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 ${cls.active ? 'bg-white shadow-xl shadow-[#066606]/10 border-[#066606]/30' : 'bg-white/50 border-black/5 opacity-70 hover:opacity-100 hover:bg-white cursor-pointer'}`}
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-xl font-bold">{cls.name}</h3>
+                  {cls.active && <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full animate-pulse">Happening Now</span>}
+                </div>
+                <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-[#050505]/60">
+                   <span className="flex items-center gap-1.5"><Clock size={16} /> {cls.time}</span>
+                   <span className="flex items-center gap-1.5"><BookOpen size={16} /> {cls.teacher}</span>
+                   <span className="flex items-center gap-1.5"><Activity size={16} /> {cls.room}</span>
+                </div>
+              </div>
+
+              {cls.active ? (
+                <button onClick={() => showToast(`Joining ${cls.name} video link...`)} className="bg-[#066606] text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-[#066606]/20 hover:-translate-y-0.5 transition-all">
+                  Join Class Session
+                </button>
+              ) : (
+                <button onClick={() => showToast(`Opening details for ${cls.name}`)} className="bg-black/5 text-[#050505] px-6 py-3 rounded-xl font-bold hover:bg-black/10 transition-all">
+                  Details
+                </button>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><AlertCircle className="text-yellow-500"/> Announcements</h3>
+            <div className="text-sm border-l-2 border-yellow-400 pl-4 py-1 text-[#050505]/60 mb-3">
+              Don't forget to submit your Science 102 project by Friday!
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-3xl border border-black/5 shadow-sm">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><FileText className="text-blue-500"/> Recent Assignments</h3>
+             <ul className="space-y-3 text-sm">
+                <li className="flex justify-between font-medium"><span>Math Worksheet 4</span> <span className="text-green-600">Graded: A</span></li>
+                <li className="flex justify-between font-medium"><span>History Essay Draft</span> <span className="text-[#050505]/50">Pending Review</span></li>
+             </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

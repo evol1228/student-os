@@ -1,0 +1,114 @@
+import React from 'react';
+import { Home, BookOpen, FolderOpen, LogOut, ExternalLink } from 'lucide-react';
+import { motion } from 'motion/react';
+
+interface StudentSidebarProps {
+  user: any;
+  activeView: 'home' | 'learnlog';
+  onViewChange: (view: 'home' | 'learnlog') => void;
+  onLogout: () => void;
+}
+
+const QUICK_APPS_EXTERNAL = [
+  { id: 1, label: 'Drive', icon: '📁', color: 'bg-blue-50 text-blue-600 border-blue-100', href: 'https://drive.google.com' },
+  { id: 2, label: 'Calculator', icon: '🧮', color: 'bg-orange-50 text-orange-600 border-orange-100', href: 'https://www.online-calculator.com/simple-calculator/' },
+  { id: 3, label: 'Email', icon: '✉️', color: 'bg-green-50 text-green-600 border-green-100', href: 'https://mail.google.com' },
+];
+
+export default function StudentSidebar({ user, activeView, onViewChange, onLogout }: StudentSidebarProps) {
+  return (
+    <aside className="w-64 bg-white border-r border-[#050505]/5 hidden lg:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto">
+      {/* Profile Block */}
+      <div className="p-5 border-b border-[#050505]/5">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-11 h-11 bg-[#066606]/10 rounded-2xl flex items-center justify-center font-black text-[#066606] text-lg border border-[#066606]/10">
+            {user.name[0]}
+          </div>
+          <div className="min-w-0">
+            <div className="text-sm font-bold truncate">{user.name}</div>
+            <div className="text-[10px] font-semibold text-[#050505]/40 uppercase tracking-widest">{user.role}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full border border-green-200 w-fit">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-[11px] font-bold">Online</span>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="p-3 space-y-1 flex-1">
+        {/* Home — internal view */}
+        <button
+          onClick={() => onViewChange('home')}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+            activeView === 'home'
+              ? 'bg-[#066606]/10 text-[#066606]'
+              : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+          }`}
+        >
+          <Home size={18} />
+          Home
+          {activeView === 'home' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+        </button>
+
+        {/* Learn Log — internal view */}
+        <button
+          onClick={() => onViewChange('learnlog')}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
+            activeView === 'learnlog'
+              ? 'bg-[#066606]/10 text-[#066606]'
+              : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
+          }`}
+        >
+          <BookOpen size={18} />
+          Learn Log
+          {activeView === 'learnlog' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+        </button>
+
+        {/* My Files — external link */}
+        <a
+          href="https://drive.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]"
+        >
+          <FolderOpen size={18} />
+          My Files
+          <ExternalLink size={12} className="ml-auto opacity-30" />
+        </a>
+      </nav>
+
+      {/* Quick Apps — external links, 3 items in a row */}
+      <div className="p-4 border-t border-[#050505]/5">
+        <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Quick Apps</h4>
+        <div className="grid grid-cols-3 gap-2">
+          {QUICK_APPS_EXTERNAL.map(app => (
+            <motion.a
+              key={app.id}
+              href={app.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className={`flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl border transition-shadow hover:shadow-md ${app.color}`}
+            >
+              <span className="text-xl">{app.icon}</span>
+              <span className="text-[10px] font-bold">{app.label}</span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+
+      {/* Logout */}
+      <div className="p-3 border-t border-[#050505]/5">
+        <button
+          onClick={onLogout}
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm text-[#050505]/40 hover:bg-red-50 hover:text-red-500 transition-all"
+        >
+          <LogOut size={18} />
+          Log Out
+        </button>
+      </div>
+    </aside>
+  );
+}
