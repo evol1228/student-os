@@ -121,53 +121,88 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
-        <div className="flex items-center gap-2 md:gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between relative">
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <div className="h-8 w-8 md:h-10 md:w-10 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
             <Shield className="h-4 w-4 md:h-6 md:w-6 text-[#fcf6e6]" />
           </div>
           <span className="text-xl md:text-2xl font-black tracking-tight">Student OS</span>
         </div>
+        
         <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#fcf6e6]/70">
           <a href="#features" className="hover:text-[#fcf6e6] transition-colors">{t('navFeatures')}</a>
           <a href="#architecture" className="hover:text-[#fcf6e6] transition-colors">{t('navArchitecture')}</a>
           <a href="#resources" className="hover:text-[#fcf6e6] transition-colors">{t('navResources')}</a>
           <a href="#about" className="hover:text-[#fcf6e6] transition-colors">{t('navAbout')}</a>
         </nav>
-        <div className="flex items-center gap-3 md:gap-4">
+
+        {/* Mobile Flag centered */}
+        <button 
+          onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
+          className="md:hidden absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden shrink-0"
+          title="Switch Language"
+        >
+          {lang === 'en' ? (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+              <clipPath id="s1">
+                <path d="M0,0 v30 h60 v-30 z"/>
+              </clipPath>
+              <clipPath id="t1">
+                <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+              </clipPath>
+              <g clipPath="url(#s1)">
+                <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t1)" stroke="#C8102E" strokeWidth="4"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+              </g>
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" className="w-5 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+              <rect width="16" height="10" fill="#006aa7"/>
+              <rect x="5" width="2" height="10" fill="#fecc00"/>
+              <rect y="4" width="16" height="2" fill="#fecc00"/>
+            </svg>
+          )}
+        </button>
+
+        <div className="flex items-center gap-3 md:gap-4 shrink-0 justify-end">
+          {/* Desktop Flag */}
           <button 
             onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
-            className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden"
+            className="hidden md:flex w-10 h-10 rounded-xl bg-white/5 border border-white/10 items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden shrink-0"
             title="Switch Language"
           >
             {lang === 'en' ? (
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-5 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity md:w-6">
-                <clipPath id="s">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-6 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+                <clipPath id="s2">
                   <path d="M0,0 v30 h60 v-30 z"/>
                 </clipPath>
-                <clipPath id="t">
+                <clipPath id="t2">
                   <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
                 </clipPath>
-                <g clipPath="url(#s)">
+                <g clipPath="url(#s2)">
                   <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
                   <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6"/>
-                  <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4"/>
+                  <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t2)" stroke="#C8102E" strokeWidth="4"/>
                   <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
                   <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
                 </g>
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" className="w-5 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity md:w-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10" className="w-6 h-auto rounded-sm shadow-sm opacity-90 hover:opacity-100 transition-opacity">
                 <rect width="16" height="10" fill="#006aa7"/>
                 <rect x="5" width="2" height="10" fill="#fecc00"/>
                 <rect y="4" width="16" height="2" fill="#fecc00"/>
               </svg>
             )}
           </button>
-          <button onClick={handleAuthClick} className="hidden md:block text-sm font-semibold hover:text-[#066606] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#066606]/30">
+          
+          <button onClick={handleAuthClick} className="text-sm font-semibold hover:text-[#066606] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#066606]/30 whitespace-nowrap">
             {user ? 'Dashboard' : t('login')}
           </button>
-          <BeamButton className="h-8 px-3 md:h-10 md:px-6 text-xs md:text-sm !py-0">{t('bookDemo')}</BeamButton>
+          <BeamButton className="hidden md:inline-flex h-10 px-6 text-sm !py-0 whitespace-nowrap">{t('bookDemo')}</BeamButton>
         </div>
       </div>
     </header>
