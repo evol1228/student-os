@@ -166,7 +166,7 @@ export function SettingsView({ user, showSecurity = true }: { user: any; showSec
   const { showToast } = useToast();
 
   return (
-    <div className="p-6 md:p-8 flex-1 overflow-y-auto">
+    <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
         <div>
           <h2 className="text-3xl font-bold tracking-tight mb-2 text-[#050505]">Settings</h2>
@@ -192,7 +192,7 @@ export function SettingsView({ user, showSecurity = true }: { user: any; showSec
 // =============================================================================
 export function ProfileView({ user }: { user: any }) {
   return (
-    <div className="p-6 md:p-8 flex-1 overflow-y-auto">
+    <div>
       <div className="max-w-3xl mx-auto">
         <ProfileDetails user={user} />
       </div>

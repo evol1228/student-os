@@ -65,7 +65,7 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
         </div>
 
         {/* Navigation */}
-        <nav className="p-3 space-y-1 flex-1">
+        <nav className="p-3 space-y-1 flex-1 border-b border-[#050505]/5">
           {/* Home — internal view */}
           <button
             onClick={() => onViewChange('home')}
@@ -102,13 +102,13 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]"
           >
             <FolderOpen size={18} />
-            <span className="underline decoration-black/20 underline-offset-2">My Files</span>
+            My Files
             <ExternalLink size={12} className="ml-auto opacity-30" />
           </a>
         </nav>
 
         {/* Other — Profile & Settings */}
-        <div className="border-t border-[#050505]/5 p-3 space-y-1">
+        <div className="p-3 space-y-1">
           <div className="text-xs font-bold text-[#050505]/40 mb-2 px-4 uppercase tracking-widest">Other</div>
           <button
             onClick={() => onViewChange('profile')}
