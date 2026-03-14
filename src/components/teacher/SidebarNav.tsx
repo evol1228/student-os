@@ -44,9 +44,31 @@ export default function SidebarNav({ activeTab, onTabChange }: SidebarNavProps) 
               </button>
             );
           })}
+        </nav>
 
-          {/* Other section — Profile & Settings */}
-          <div className="text-xs font-bold text-[#050505]/40 mt-8 mb-3 px-4 uppercase tracking-widest">Other</div>
+        {/* Schedule */}
+        <div className="border-t border-[#050505]/5 p-4">
+          <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Today's Schedule</h4>
+          <div className="space-y-1.5">
+            {SCHEDULE.map((block, i) => (
+              <div key={i} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs transition-all ${
+                block.active 
+                  ? 'bg-[#066606]/10 text-[#066606] font-bold' 
+                  : block.done
+                    ? 'text-[#050505]/30 line-through'
+                    : 'text-[#050505]/60 font-medium'
+              }`}>
+                <span className="font-mono w-10 shrink-0">{block.time}</span>
+                <span className="truncate">{block.label}</span>
+                {block.active && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#066606] animate-pulse" />}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Other — Profile & Settings pinned to bottom */}
+        <div className="border-t border-[#050505]/5 p-3 space-y-1">
+          <div className="text-xs font-bold text-[#050505]/40 mb-2 px-4 uppercase tracking-widest">Other</div>
           <button
             onClick={() => onTabChange('profile')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
@@ -71,26 +93,6 @@ export default function SidebarNav({ activeTab, onTabChange }: SidebarNavProps) 
             Settings
             {activeTab === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
           </button>
-        </nav>
-
-        {/* Schedule — Pinned to Bottom */}
-        <div className="border-t border-[#050505]/5 p-4">
-          <h4 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 mb-3 px-1">Today's Schedule</h4>
-          <div className="space-y-1.5">
-            {SCHEDULE.map((block, i) => (
-              <div key={i} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs transition-all ${
-                block.active 
-                  ? 'bg-[#066606]/10 text-[#066606] font-bold' 
-                  : block.done
-                    ? 'text-[#050505]/30 line-through'
-                    : 'text-[#050505]/60 font-medium'
-              }`}>
-                <span className="font-mono w-10 shrink-0">{block.time}</span>
-                <span className="truncate">{block.label}</span>
-                {block.active && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#066606] animate-pulse" />}
-              </div>
-            ))}
-          </div>
         </div>
       </aside>
 
