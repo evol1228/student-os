@@ -112,7 +112,6 @@ const Header = () => {
   const handleAuthClick = () => {
     const prefix = lang === 'en' ? '/en' : '';
     if (user) {
-      // Assuming user.redirect is root-relative like '/dashboard'
       window.location.href = `${prefix}${user.redirect}`;
     } else {
       window.location.href = `${prefix}/login`;
@@ -145,51 +144,65 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
-        <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <div className="h-8 w-8 md:h-10 md:w-10 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
-            <Shield className="h-4 w-4 md:h-6 md:w-6 text-[#fcf6e6]" />
-          </div>
-          <span className="text-xl md:text-2xl font-black tracking-tight">Student OS</span>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 relative">
         
-        {/* Mobile Language Switcher (Centered) */}
-        <div className="md:hidden flex-1 flex justify-center px-2">
-          <button 
-            onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
-            className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden"
-            title="Switch Language"
-          >
-            {renderFlag()}
-          </button>
+        {/* === Desktop Header (Hidden on Mobile) === */}
+        <div className="hidden md:flex w-full h-full items-center justify-between">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
+              <Shield className="h-6 w-6 text-[#fcf6e6]" />
+            </div>
+            <span className="text-2xl font-black tracking-tight">Student OS</span>
+          </div>
+
+          <nav className="flex items-center gap-8 text-sm font-semibold text-[#fcf6e6]/70">
+            <a href="#features" className="hover:text-[#fcf6e6] transition-colors">{t('navFeatures')}</a>
+            <a href="#architecture" className="hover:text-[#fcf6e6] transition-colors">{t('navArchitecture')}</a>
+            <a href="#resources" className="hover:text-[#fcf6e6] transition-colors">{t('navResources')}</a>
+            <a href="#about" className="hover:text-[#fcf6e6] transition-colors">{t('navAbout')}</a>
+          </nav>
+          
+          <div className="flex items-center gap-4 shrink-0">
+            <button 
+              onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden"
+              title="Switch Language"
+            >
+              {renderFlag()}
+            </button>
+            <button onClick={handleAuthClick} className="text-sm font-semibold hover:text-[#066606] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#066606]/30">
+              {user ? 'Dashboard' : t('login')}
+            </button>
+            <BeamButton className="h-10 px-6 text-sm !py-0">{t('bookDemo')}</BeamButton>
+          </div>
         </div>
 
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#fcf6e6]/70">
-          <a href="#features" className="hover:text-[#fcf6e6] transition-colors">{t('navFeatures')}</a>
-          <a href="#architecture" className="hover:text-[#fcf6e6] transition-colors">{t('navArchitecture')}</a>
-          <a href="#resources" className="hover:text-[#fcf6e6] transition-colors">{t('navResources')}</a>
-          <a href="#about" className="hover:text-[#fcf6e6] transition-colors">{t('navAbout')}</a>
-        </nav>
-        
-        <div className="flex items-center gap-3 md:gap-4 shrink-0">
-          {/* Desktop Language Switcher */}
-          <button 
-            onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
-            className="hidden md:flex w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden"
-            title="Switch Language"
-          >
-            {renderFlag()}
-          </button>
-          
-          <button onClick={handleAuthClick} className="hidden md:block text-sm font-semibold hover:text-[#066606] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#066606]/30">
-            {user ? 'Dashboard' : t('login')}
-          </button>
-          
-          {/* Desktop Book Demo */}
-          <BeamButton className="hidden md:inline-flex h-10 px-6 text-sm !py-0">{t('bookDemo')}</BeamButton>
-          
-          {/* Mobile Log In */}
-          <BeamButton onClick={handleAuthClick} className="md:hidden h-8 px-4 text-xs !py-0 whitespace-nowrap">{user ? 'Dashboard' : t('login')}</BeamButton>
+        {/* === Mobile Header (Hidden on Desktop) === */}
+        <div className="flex md:hidden w-full h-full items-center justify-between relative">
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
+              <Shield className="h-4 w-4 text-[#fcf6e6]" />
+            </div>
+            <span className="text-xl font-black tracking-tight">Student OS</span>
+          </div>
+
+          {/* Absolute centered flag element */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+            <button 
+              onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
+              className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden pointer-events-auto"
+              title="Switch Language"
+            >
+              {renderFlag()}
+            </button>
+          </div>
+
+          <div className="shrink-0 flex items-center">
+            {/* Mobile Log In */}
+            <BeamButton onClick={handleAuthClick} className="h-8 px-4 text-xs !py-0 whitespace-nowrap">
+              {user ? 'Dashboard' : t('login')}
+            </BeamButton>
+          </div>
         </div>
       </div>
     </header>
