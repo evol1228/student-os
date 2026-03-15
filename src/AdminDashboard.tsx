@@ -114,10 +114,8 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#fcf6e6] text-[#050505] flex font-sans selection:bg-[#1A1A1A] selection:text-white">
       {/* Sidebar */}
       <aside className="w-[280px] bg-white border-r border-[#050505]/5 flex flex-col hidden lg:flex sticky top-0 h-screen">
-        <div className="p-8 flex items-center gap-3">
-        <div className="p-8 flex justify-center">
+        <div className="p-8 pb-4 flex justify-center">
           <img src="/kalm_logo.png" alt="kalm logo" className="h-8 object-contain" />
-        </div>
         </div>
         
         <nav className="flex-1 px-4 space-y-1">
@@ -145,6 +143,9 @@ export default function AdminDashboard() {
       <main className="flex-1 flex flex-col min-h-screen overflow-x-hidden">
         {/* Top Header */}
         <header className="h-[90px] bg-white border-b border-[#050505]/5 flex items-center justify-between px-8 sticky top-0 z-20">
+          <div className="lg:hidden mr-4">
+            <img src="/kalm_logo.png" alt="kalm logo" className="h-6 object-contain" />
+          </div>
           <div className="relative w-full max-w-md hidden sm:block">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#050505]/40" size={20} />
             <input 

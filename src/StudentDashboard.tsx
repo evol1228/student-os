@@ -52,6 +52,10 @@ export default function StudentDashboard() {
       {/* Column 2: Center Stage */}
       <main className="flex-1 overflow-y-auto min-w-0 pb-28 lg:pb-0">
         <div className="max-w-3xl mx-auto px-6 py-6">
+          {/* Mobile Logo */}
+          <div className="lg:hidden mb-6 flex justify-center">
+             <img src="/kalm_logo.png" alt="kalm logo" className="h-6 object-contain" />
+          </div>
           <AnimatePresence mode="wait">
             {activeView === 'home' && (
               <HomeView key="home" user={user} />

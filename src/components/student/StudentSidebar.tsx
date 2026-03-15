@@ -24,6 +24,11 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
     <>
       {/* Desktop Sidebar */}
       <aside className="w-64 bg-white border-r border-[#050505]/5 hidden lg:flex flex-col shrink-0 sticky top-0 h-screen overflow-y-auto">
+        {/* Logo */}
+        <div className="p-8 pb-4 flex justify-center">
+          <img src="/kalm_logo.png" alt="kalm logo" className="h-8 object-contain" />
+        </div>
+
         {/* Profile Block */}
         <div className="p-5 border-b border-[#050505]/5 relative">
           <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 mb-4 cursor-pointer group hover:bg-[#050505]/5 p-2 -m-2 rounded-xl transition">

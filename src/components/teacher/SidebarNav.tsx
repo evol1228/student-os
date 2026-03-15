@@ -20,6 +20,11 @@ export default function SidebarNav({ activeTab, onTabChange, onLogout }: Sidebar
   return (
     <>
       <aside className="w-[260px] bg-white border-r border-[#050505]/5 flex-col hidden md:flex shrink-0">
+        {/* Logo */}
+        <div className="p-8 pb-4 flex justify-center">
+          <img src="/kalm_logo.png" alt="kalm logo" className="h-8 object-contain" />
+        </div>
+        
         {/* Tabs */}
         <nav className="p-3 space-y-1 flex-1">
           {SIDEBAR_TABS.map(tab => {

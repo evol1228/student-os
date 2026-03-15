@@ -25,6 +25,9 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
     <header className="h-[72px] bg-white border-b border-[#050505]/5 flex items-center justify-between px-6 sticky top-0 z-30 shrink-0">
       {/* Left: Class Selector */}
       <div className="flex items-center gap-6">
+        <div className="md:hidden">
+          <img src="/kalm_logo.png" alt="kalm logo" className="h-6 object-contain" />
+        </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-[#1A1A1A] rounded-lg flex items-center justify-center">
             <BookOpen size={16} className="text-[#fcf6e6]" />
