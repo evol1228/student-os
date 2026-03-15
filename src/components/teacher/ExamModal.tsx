@@ -48,7 +48,7 @@ export default function ExamModal({ students, onClose, showToast }: ExamModalPro
           <div className="p-6 md:p-8 border-b border-black/5 bg-white flex justify-between items-start">
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-3">
-                <div className="p-2 bg-[#066606]/10 text-[#066606] rounded-xl">
+                <div className="p-2 bg-[#1A1A1A]/10 text-[#1A1A1A] rounded-xl">
                   <FileText size={24} />
                 </div>
                 Force Exam Mode
@@ -68,14 +68,14 @@ export default function ExamModal({ students, onClose, showToast }: ExamModalPro
                 placeholder="https://forms.google.com/..."
                 value={examUrl}
                 onChange={e => setExamUrl(e.target.value)}
-                className="w-full bg-white border border-black/10 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#066606]/50 transition shadow-sm font-medium text-[#050505] placeholder:opacity-40"
+                className="w-full bg-white border border-black/10 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/50 transition shadow-sm font-medium text-[#050505] placeholder:opacity-40"
               />
             </div>
 
             <div>
               <div className="flex justify-between items-center mb-3">
                 <label className="text-xs font-bold opacity-60 uppercase tracking-widest text-[#050505]">Select Students</label>
-                <button onClick={toggleAll} className="text-sm font-bold text-[#066606] hover:underline">
+                <button onClick={toggleAll} className="text-sm font-bold text-[#1A1A1A] hover:underline">
                   {selectedIds.length === students.length ? "Deselect All" : "Select All"}
                 </button>
               </div>
@@ -87,7 +87,7 @@ export default function ExamModal({ students, onClose, showToast }: ExamModalPro
                     className="flex justify-between items-center p-4 border-b border-black/5 last:border-0 hover:bg-black/5 cursor-pointer transition"
                   >
                     <span className="font-semibold text-[15px]">{student.name}</span>
-                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${selectedIds.includes(student.id) ? 'bg-[#066606] border-[#066606] text-white' : 'border-black/20'}`}>
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${selectedIds.includes(student.id) ? 'bg-[#1A1A1A] border-[#1A1A1A] text-white' : 'border-black/20'}`}>
                       {selectedIds.includes(student.id) && <CheckCircle2 size={16} strokeWidth={3} />}
                     </div>
                   </div>
@@ -97,7 +97,7 @@ export default function ExamModal({ students, onClose, showToast }: ExamModalPro
           </div>
 
           <div className="p-6 md:p-8 border-t border-black/5 bg-white">
-            <button onClick={handleStartExam} className="w-full bg-[#066606] hover:bg-[#055505] text-[#fcf6e6] font-bold text-lg py-4 rounded-2xl shadow-[0_10px_20px_-10px_rgba(6,102,6,0.6)] transition-all flex justify-center items-center gap-2 hover:-translate-y-0.5 active:translate-y-0">
+            <button onClick={handleStartExam} className="w-full bg-[#1A1A1A] hover:bg-[#1A1A1A] text-[#fcf6e6] font-bold text-lg py-4 rounded-2xl shadow-[0_10px_20px_-10px_rgba(6,102,6,0.6)] transition-all flex justify-center items-center gap-2 hover:-translate-y-0.5 active:translate-y-0">
               <Lock size={20} />
               Start Exam for {selectedIds.length} Students
             </button>

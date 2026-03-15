@@ -39,7 +39,7 @@ export default function FeedPost({ post, index }: FeedPostProps) {
     >
       {/* Compact Header */}
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-8 h-8 bg-[#066606]/10 rounded-full flex items-center justify-center font-black text-[#066606] text-xs shrink-0">
+        <div className="w-8 h-8 bg-[#1A1A1A]/10 rounded-full flex items-center justify-center font-black text-[#1A1A1A] text-xs shrink-0">
           {post.teacher[0]}
         </div>
         <div className="flex-1 min-w-0">
@@ -60,7 +60,7 @@ export default function FeedPost({ post, index }: FeedPostProps) {
         <ul className="space-y-1.5 mb-3 pl-0.5">
           {post.bullets.map((b, bi) => (
             <li key={bi} className="flex items-start gap-2.5 text-[13px] text-[#050505]/55 font-medium">
-              <span className="w-1 h-1 rounded-full bg-[#066606] mt-[7px] shrink-0" />
+              <span className="w-1 h-1 rounded-full bg-[#1A1A1A] mt-[7px] shrink-0" />
               {b}
             </li>
           ))}
@@ -74,9 +74,9 @@ export default function FeedPost({ post, index }: FeedPostProps) {
             <button
               key={fi}
               onClick={() => showToast(`Downloading ${f.name}...`)}
-              className="inline-flex items-center gap-1.5 bg-[#050505]/[0.04] hover:bg-[#066606]/10 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#050505]/60 hover:text-[#066606] transition-all group"
+              className="inline-flex items-center gap-1.5 bg-[#050505]/[0.04] hover:bg-[#1A1A1A]/10 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#050505]/60 hover:text-[#1A1A1A] transition-all group"
             >
-              <FileText size={12} className="text-[#050505]/30 group-hover:text-[#066606] transition-colors" />
+              <FileText size={12} className="text-[#050505]/30 group-hover:text-[#1A1A1A] transition-colors" />
               {f.name}
               <span className="text-[#050505]/25">{f.size}</span>
               <Download size={10} className="opacity-0 group-hover:opacity-60 transition-opacity" />

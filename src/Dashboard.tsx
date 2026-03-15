@@ -53,7 +53,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcf6e6] text-[#050505] font-sans selection:bg-[#066606] selection:text-white flex flex-col">
+    <div className="min-h-screen bg-[#fcf6e6] text-[#050505] font-sans selection:bg-[#1A1A1A] selection:text-white flex flex-col">
       
       <ClassHeader
         selectedClass={selectedClass}
@@ -147,7 +147,7 @@ export default function Dashboard() {
                   <button onClick={() => showToast(`Locked ${selectedStudent.name}'s device.`)} className="py-3 px-4 bg-black/5 hover:bg-black/10 rounded-xl font-semibold transition flex justify-center gap-2 items-center">
                     <Lock size={16}/> Lock
                   </button>
-                  <button onClick={() => showToast(`Sent message to ${selectedStudent.name}.`)} className="py-3 px-4 bg-[#066606] hover:bg-[#055505] text-[#fcf6e6] rounded-xl font-semibold shadow-md transition flex justify-center gap-2 items-center">
+                  <button onClick={() => showToast(`Sent message to ${selectedStudent.name}.`)} className="py-3 px-4 bg-[#1A1A1A] hover:bg-[#1A1A1A] text-[#fcf6e6] rounded-xl font-semibold shadow-md transition flex justify-center gap-2 items-center">
                     <Send size={16}/> Message
                   </button>
                 </div>

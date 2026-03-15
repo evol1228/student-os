@@ -26,11 +26,11 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
       {/* Left: Class Selector */}
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#066606] rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#1A1A1A] rounded-lg flex items-center justify-center">
             <BookOpen size={16} className="text-[#fcf6e6]" />
           </div>
           <div className="relative group">
-            <button className="flex items-center gap-2 font-bold text-lg hover:text-[#066606] transition-colors">
+            <button className="flex items-center gap-2 font-bold text-lg hover:text-[#1A1A1A] transition-colors">
               {selectedClass.name}
               <ChevronDown size={16} className="opacity-40" />
             </button>
@@ -39,7 +39,7 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
                 <button 
                   key={cls.id}
                   onClick={() => { onSelectClass(cls); showToast(`Switched to ${cls.name}`); }}
-                  className={`w-full text-left px-4 py-3 hover:bg-[#fcf6e6] transition flex justify-between items-center ${selectedClass.id === cls.id ? 'text-[#066606] font-bold' : 'font-medium'}`}
+                  className={`w-full text-left px-4 py-3 hover:bg-[#fcf6e6] transition flex justify-between items-center ${selectedClass.id === cls.id ? 'text-[#1A1A1A] font-bold' : 'font-medium'}`}
                 >
                   {cls.name}
                   <span className="text-xs opacity-40">{cls.students} students</span>
@@ -53,7 +53,7 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
         
         {/* Timer */}
         <div className="hidden md:flex items-center gap-2 bg-[#fcf6e6] px-4 py-2 rounded-full border border-[#050505]/5">
-          <Clock size={16} className="text-[#066606]" />
+          <Clock size={16} className="text-[#1A1A1A]" />
           <span className="font-bold text-sm font-mono tabular-nums">
             {String(mins).padStart(2, '0')}:{String(secs).padStart(2, '0')}
           </span>
@@ -65,7 +65,7 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
         {/* Attendance Summary */}
         <div className="hidden lg:flex items-center gap-4 text-sm font-bold">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500" /> {presentCount} Present
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1A1A1A]" /> {presentCount} Present
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500" /> {absentCount} Absent
@@ -83,9 +83,9 @@ export default function ClassHeader({ selectedClass, onSelectClass, mins, secs, 
         <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 cursor-pointer group p-1 pr-2 rounded-2xl hover:bg-[#050505]/5 transition">
           <div className="text-right hidden sm:block">
             <div className="text-sm font-bold">{user ? user.name : 'Mrs. Anderson'}</div>
-            <div className="text-[10px] font-bold text-[#066606] uppercase tracking-wider">{user?.role || 'Teacher'}</div>
+            <div className="text-[10px] font-bold text-[#1A1A1A] uppercase tracking-wider">{user?.role || 'Teacher'}</div>
           </div>
-          <div className="w-10 h-10 rounded-full bg-[#066606]/10 flex items-center justify-center font-bold text-[#066606] border border-[#066606]/20">
+          <div className="w-10 h-10 rounded-full bg-[#1A1A1A]/10 flex items-center justify-center font-bold text-[#1A1A1A] border border-[#1A1A1A]/20">
             {user ? user.name[0] : 'M'}
           </div>
         </div>

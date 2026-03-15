@@ -13,7 +13,7 @@ interface StudentSidebarProps {
 const QUICK_APPS_EXTERNAL = [
   { id: 1, label: 'Drive', icon: '📁', color: 'bg-blue-50 text-blue-600 border-blue-100', href: 'https://drive.google.com' },
   { id: 2, label: 'Calculator', icon: '🧮', color: 'bg-orange-50 text-orange-600 border-orange-100', href: 'https://www.online-calculator.com/simple-calculator/' },
-  { id: 3, label: 'Email', icon: '✉️', color: 'bg-green-50 text-green-600 border-green-100', href: 'https://mail.google.com' },
+  { id: 3, label: 'Email', icon: '✉️', color: 'bg-neutral-50 text-[#1A1A1A] border-neutral-100', href: 'https://mail.google.com' },
 ];
 
 export default function StudentSidebar({ user, activeView, onViewChange, onLogout }: StudentSidebarProps) {
@@ -27,16 +27,16 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
         {/* Profile Block */}
         <div className="p-5 border-b border-[#050505]/5 relative">
           <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 mb-4 cursor-pointer group hover:bg-[#050505]/5 p-2 -m-2 rounded-xl transition">
-            <div className="w-11 h-11 bg-[#066606]/10 rounded-2xl flex items-center justify-center font-black text-[#066606] text-lg border border-[#066606]/10">
+            <div className="w-11 h-11 bg-[#1A1A1A]/10 rounded-2xl flex items-center justify-center font-black text-[#1A1A1A] text-lg border border-[#1A1A1A]/10">
               {user.name[0]}
             </div>
             <div className="min-w-0">
-              <div className="text-sm font-bold truncate group-hover:text-[#066606] transition-colors">{user.name}</div>
+              <div className="text-sm font-bold truncate group-hover:text-[#1A1A1A] transition-colors">{user.name}</div>
               <div className="text-[10px] font-semibold text-[#050505]/40 uppercase tracking-widest">{user.role}</div>
             </div>
           </div>
-          <div className="flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full border border-green-200 w-fit">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <div className="flex items-center gap-2 bg-neutral-50 text-[#1A1A1A] px-3 py-1.5 rounded-full border border-neutral-200 w-fit">
+            <span className="w-2 h-2 rounded-full bg-[#1A1A1A] animate-pulse" />
             <span className="text-[11px] font-bold">Online</span>
           </div>
 
@@ -71,13 +71,13 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             onClick={() => onViewChange('home')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
               activeView === 'home'
-                ? 'bg-[#066606]/10 text-[#066606]'
+                ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]'
                 : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
             }`}
           >
             <Home size={18} />
             Home
-            {activeView === 'home' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+            {activeView === 'home' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#1A1A1A]" />}
           </button>
 
           {/* Learn Log — internal view */}
@@ -85,13 +85,13 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             onClick={() => onViewChange('learnlog')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
               activeView === 'learnlog'
-                ? 'bg-[#066606]/10 text-[#066606]'
+                ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]'
                 : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
             }`}
           >
             <BookOpen size={18} />
             Learn Log
-            {activeView === 'learnlog' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+            {activeView === 'learnlog' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#1A1A1A]" />}
           </button>
 
           {/* My Files — external link */}
@@ -114,25 +114,25 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
             onClick={() => onViewChange('profile')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
               activeView === 'profile'
-                ? 'bg-[#066606]/10 text-[#066606]'
+                ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]'
                 : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
             }`}
           >
             <UserCheck size={18} />
             Profile
-            {activeView === 'profile' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+            {activeView === 'profile' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#1A1A1A]" />}
           </button>
           <button
             onClick={() => onViewChange('settings')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all text-sm ${
               activeView === 'settings'
-                ? 'bg-[#066606]/10 text-[#066606]'
+                ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]'
                 : 'text-[#050505]/50 hover:bg-[#050505]/5 hover:text-[#050505]'
             }`}
           >
             <Settings size={18} />
             Settings
-            {activeView === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#066606]" />}
+            {activeView === 'settings' && <div className="ml-auto w-1.5 h-5 rounded-full bg-[#1A1A1A]" />}
           </button>
         </div>
 
@@ -174,13 +174,13 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
         <button
           onClick={() => onViewChange('home')}
           className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all relative w-20 ${
-            activeView === 'home' ? 'text-[#066606]' : 'text-[#050505]/40 hover:text-[#050505]/70'
+            activeView === 'home' ? 'text-[#1A1A1A]' : 'text-[#050505]/40 hover:text-[#050505]/70'
           }`}
         >
-          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'home' ? 'bg-[#066606]/10' : ''}`}>
+          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'home' ? 'bg-[#1A1A1A]/10' : ''}`}>
             <Home size={22} />
           </div>
-          <span className={`text-[10px] font-bold mt-1 ${activeView === 'home' ? 'text-[#066606]' : 'text-[#050505]/40'}`}>
+          <span className={`text-[10px] font-bold mt-1 ${activeView === 'home' ? 'text-[#1A1A1A]' : 'text-[#050505]/40'}`}>
             Home
           </span>
         </button>
@@ -188,13 +188,13 @@ export default function StudentSidebar({ user, activeView, onViewChange, onLogou
         <button
           onClick={() => onViewChange('learnlog')}
           className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all relative w-20 ${
-            activeView === 'learnlog' ? 'text-[#066606]' : 'text-[#050505]/40 hover:text-[#050505]/70'
+            activeView === 'learnlog' ? 'text-[#1A1A1A]' : 'text-[#050505]/40 hover:text-[#050505]/70'
           }`}
         >
-          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'learnlog' ? 'bg-[#066606]/10' : ''}`}>
+          <div className={`p-1.5 rounded-xl transition-colors ${activeView === 'learnlog' ? 'bg-[#1A1A1A]/10' : ''}`}>
             <BookOpen size={22} />
           </div>
-          <span className={`text-[10px] font-bold mt-1 ${activeView === 'learnlog' ? 'text-[#066606]' : 'text-[#050505]/40'}`}>
+          <span className={`text-[10px] font-bold mt-1 ${activeView === 'learnlog' ? 'text-[#1A1A1A]' : 'text-[#050505]/40'}`}>
             Learn Log
           </span>
         </button>

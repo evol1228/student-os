@@ -48,7 +48,7 @@ export default function HomeView({ user }: HomeViewProps) {
               transition={{ delay: i * 0.06 }}
               className={`flex-shrink-0 w-44 p-4 rounded-2xl border transition-all ${
                 cls.status === 'active'
-                  ? 'bg-white border-[#066606]/20 shadow-lg shadow-[#066606]/5'
+                  ? 'bg-white border-[#1A1A1A]/20 shadow-lg shadow-[#1A1A1A]/5'
                   : cls.status === 'done'
                     ? 'bg-white/60 border-[#050505]/5 opacity-50'
                     : 'bg-white border-[#050505]/5 hover:shadow-sm'
@@ -56,18 +56,18 @@ export default function HomeView({ user }: HomeViewProps) {
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className={`w-7 h-7 rounded-xl flex items-center justify-center ${
-                  cls.status === 'active' ? 'bg-[#066606] text-[#fcf6e6]' : 'bg-[#050505]/5'
+                  cls.status === 'active' ? 'bg-[#1A1A1A] text-[#fcf6e6]' : 'bg-[#050505]/5'
                 }`}>
                   <BookOpen size={13} />
                 </div>
                 {cls.status === 'active' && (
-                  <span className="px-2 py-0.5 bg-[#066606]/10 text-[#066606] text-[8px] font-black rounded-full uppercase tracking-wider">Now</span>
+                  <span className="px-2 py-0.5 bg-[#1A1A1A]/10 text-[#1A1A1A] text-[8px] font-black rounded-full uppercase tracking-wider">Now</span>
                 )}
                 {cls.status === 'done' && (
                   <span className="px-2 py-0.5 bg-[#050505]/5 text-[#050505]/30 text-[8px] font-black rounded-full uppercase tracking-wider">Done</span>
                 )}
               </div>
-              <div className={`text-sm font-bold mb-0.5 ${cls.status === 'active' ? 'text-[#066606]' : ''}`}>{cls.label}</div>
+              <div className={`text-sm font-bold mb-0.5 ${cls.status === 'active' ? 'text-[#1A1A1A]' : ''}`}>{cls.label}</div>
               <div className="text-[10px] text-[#050505]/35 font-medium">{cls.teacher}</div>
               <div className="flex items-center gap-1.5 mt-2 text-[10px] text-[#050505]/30 font-mono">
                 <Clock size={10} />
@@ -102,13 +102,13 @@ export default function HomeView({ user }: HomeViewProps) {
           <h3 className="text-[10px] font-black uppercase tracking-widest text-[#050505]/40 px-0.5 flex items-center gap-2">
             <CheckSquare size={12} /> My To-Do List
           </h3>
-          <span className="text-[11px] font-bold text-[#066606]">{todos.filter(t => t.done).length}/{todos.length} done</span>
+          <span className="text-[11px] font-bold text-[#1A1A1A]">{todos.filter(t => t.done).length}/{todos.length} done</span>
         </div>
 
         {/* Progress Bar */}
         <div className="h-1.5 bg-[#050505]/5 rounded-full overflow-hidden mb-4">
           <motion.div
-            className="h-full bg-[#066606] rounded-full"
+            className="h-full bg-[#1A1A1A] rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${(todos.filter(t => t.done).length / todos.length) * 100}%` }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -127,12 +127,12 @@ export default function HomeView({ user }: HomeViewProps) {
               className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all text-left ${
                 item.done
                   ? 'border-[#050505]/5 bg-[#050505]/[0.02]'
-                  : 'border-[#050505]/5 bg-white hover:border-[#066606]/20 hover:shadow-sm'
+                  : 'border-[#050505]/5 bg-white hover:border-[#1A1A1A]/20 hover:shadow-sm'
               }`}
             >
               <div className="shrink-0">
                 {item.done ? (
-                  <CheckSquare size={20} className="text-[#066606]" />
+                  <CheckSquare size={20} className="text-[#1A1A1A]" />
                 ) : (
                   <Square size={20} className="text-[#050505]/20" />
                 )}

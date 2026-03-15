@@ -49,7 +49,7 @@ const BackgroundMotion = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-[10%] left-[20%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] rounded-full bg-[#066606]/20 blur-[80px] md:blur-[120px]"
+        className="absolute top-[10%] left-[20%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] rounded-full bg-[#1A1A1A]/20 blur-[80px] md:blur-[120px]"
       />
       <motion.div
         animate={{
@@ -62,7 +62,7 @@ const BackgroundMotion = () => {
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-[20%] right-[10%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] rounded-full bg-[#066606]/20 blur-[60px] md:blur-[100px]"
+        className="absolute bottom-[20%] right-[10%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] rounded-full bg-[#1A1A1A]/20 blur-[60px] md:blur-[100px]"
       />
     </div>
   );
@@ -70,16 +70,16 @@ const BackgroundMotion = () => {
 
 const ShootingStars = () => (
   <div className="absolute top-0 inset-x-0 h-[500px] md:h-[700px] overflow-hidden pointer-events-none z-0">
-    <div className="absolute top-[8%] left-[-5%] w-[140px] md:w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/50 to-[#4ade80] rotate-[15deg] animate-shoot" style={{ animationDelay: '0s', animationDuration: '2.2s' }}>
+    <div className="absolute top-[8%] left-[-5%] w-[140px] md:w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#1A1A1A]/50 to-[#4ade80] rotate-[15deg] animate-shoot" style={{ animationDelay: '0s', animationDuration: '2.2s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[4px] md:h-[4px] bg-white rounded-full shadow-[0_0_8px_2px_#4ade80]" />
     </div>
-    <div className="absolute top-[20%] left-[-8%] w-[160px] md:w-[230px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/40 to-[#4ade80] rotate-[12deg] animate-shoot" style={{ animationDelay: '1.5s', animationDuration: '2.4s' }}>
+    <div className="absolute top-[20%] left-[-8%] w-[160px] md:w-[230px] h-[2px] bg-gradient-to-r from-transparent via-[#1A1A1A]/40 to-[#4ade80] rotate-[12deg] animate-shoot" style={{ animationDelay: '1.5s', animationDuration: '2.4s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[5px] md:h-[5px] bg-white rounded-full shadow-[0_0_10px_3px_#4ade80]" />
     </div>
-    <div className="absolute top-[5%] left-[-3%] w-[100px] md:w-[150px] h-[1.5px] bg-gradient-to-r from-transparent via-[#066606]/35 to-[#4ade80]/80 rotate-[20deg] animate-shoot" style={{ animationDelay: '0.7s', animationDuration: '2s' }}>
+    <div className="absolute top-[5%] left-[-3%] w-[100px] md:w-[150px] h-[1.5px] bg-gradient-to-r from-transparent via-[#1A1A1A]/35 to-[#4ade80]/80 rotate-[20deg] animate-shoot" style={{ animationDelay: '0.7s', animationDuration: '2s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] md:w-[3px] md:h-[3px] bg-white rounded-full shadow-[0_0_6px_1px_#4ade80]" />
     </div>
-    <div className="absolute top-[28%] left-[-6%] w-[180px] md:w-[260px] h-[2px] bg-gradient-to-r from-transparent via-[#066606]/30 to-[#4ade80] rotate-[10deg] animate-shoot" style={{ animationDelay: '2.8s', animationDuration: '2.6s' }}>
+    <div className="absolute top-[28%] left-[-6%] w-[180px] md:w-[260px] h-[2px] bg-gradient-to-r from-transparent via-[#1A1A1A]/30 to-[#4ade80] rotate-[10deg] animate-shoot" style={{ animationDelay: '2.8s', animationDuration: '2.6s' }}>
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[3px] md:w-[5px] md:h-[5px] bg-white rounded-full shadow-[0_0_10px_3px_#4ade80]" />
     </div>
   </div>
@@ -93,7 +93,7 @@ const BeamButton = ({ children, primary = true, className = '', ...props }: any)
     >
       <span className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full ${
         primary 
-          ? 'bg-gradient-to-r from-[#066606] via-[#0a990a] to-[#066606] text-white shadow-lg shadow-[#066606]/30 hover:shadow-[0_0_30px_rgba(6,102,6,0.6)]' 
+          ? 'bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-[#1A1A1A] text-white shadow-lg shadow-[#1A1A1A]/30 hover:shadow-[0_0_30px_rgba(6,102,6,0.6)]' 
           : 'bg-transparent border border-white/10 hover:border-white/30 text-[#fcf6e6]'
       } px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold backdrop-blur-3xl transition-all duration-300`}>
         {children}
@@ -150,11 +150,8 @@ const Header = () => {
         
         {/* === Desktop Header (Hidden on Mobile) === */}
         <div className="hidden md:flex w-full h-full items-center justify-between">
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
-              <Shield className="h-6 w-6 text-[#fcf6e6]" />
-            </div>
-            <span className="text-2xl font-black tracking-tight">Student OS</span>
+          <div className="flex items-center shrink-0">
+            <img src="/logo.png" alt="kalm logo" className="h-8 md:h-10 object-contain" />
           </div>
 
           <nav className="flex items-center gap-8 text-sm font-semibold text-[#fcf6e6]/70">
@@ -167,12 +164,12 @@ const Header = () => {
           <div className="flex items-center gap-4 shrink-0">
             <button 
               onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden"
+              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#1A1A1A]/50 transition-all overflow-hidden"
               title="Switch Language"
             >
               {renderFlag()}
             </button>
-            <button onClick={handleAuthClick} className="text-sm font-semibold hover:text-[#066606] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#066606]/30">
+            <button onClick={handleAuthClick} className="text-sm font-semibold hover:text-[#1A1A1A] px-3 py-1.5 rounded-lg transition-colors border border-transparent hover:border-[#1A1A1A]/30">
               {user ? 'Dashboard' : t('login')}
             </button>
             <BeamButton className="h-10 px-6 text-sm !py-0">{t('bookDemo')}</BeamButton>
@@ -181,18 +178,15 @@ const Header = () => {
 
         {/* === Mobile Header (Hidden on Desktop) === */}
         <div className="flex md:hidden w-full h-full items-center justify-between relative">
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center shadow-[0_0_20px_rgba(6,102,6,0.4)]">
-              <Shield className="h-4 w-4 text-[#fcf6e6]" />
-            </div>
-            <span className="text-xl font-black tracking-tight">Student OS</span>
+          <div className="flex items-center shrink-0">
+            <img src="/logo.png" alt="kalm logo" className="h-7 object-contain" />
           </div>
 
           {/* Absolute centered flag element */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
             <button 
               onClick={() => window.location.href = lang === 'en' ? '/' : '/en'}
-              className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#066606]/50 transition-all overflow-hidden pointer-events-auto"
+              className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-[#1A1A1A]/50 transition-all overflow-hidden pointer-events-auto"
               title="Switch Language"
             >
               {renderFlag()}
@@ -219,7 +213,7 @@ const HeroSection = () => {
       <div className="flex-1 text-center lg:text-left z-10 w-full">
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter mb-6 md:mb-8 leading-[1.05] uppercase">
           {t('heroTitleOutline')} <br className="hidden sm:block"/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#066606] to-[#0a990a]">{t('heroTitleHighlight')}</span><br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1A1A1A] to-[#1A1A1A]">{t('heroTitleHighlight')}</span><br/>
           {t('heroTitleEnd')}
         </h1>
         <p className="text-lg sm:text-xl text-[#fcf6e6]/70 mb-8 md:mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -235,21 +229,21 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="rounded-3xl border border-white/10 bg-[#050505]/80 relative overflow-hidden group shadow-2xl shadow-[#066606]/10 hover:shadow-[#066606]/20 transition-shadow duration-500 backdrop-blur-sm"
+          className="rounded-3xl border border-white/10 bg-[#050505]/80 relative overflow-hidden group shadow-2xl shadow-[#1A1A1A]/10 hover:shadow-[#1A1A1A]/20 transition-shadow duration-500 backdrop-blur-sm"
         >
           {/* macOS-style title bar */}
           <div className="h-10 md:h-12 border-b border-white/10 flex items-center px-4 md:px-5 gap-2 bg-[#1a1a1a]/80">
             <div className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-[0_0_6px_rgba(255,95,87,0.4)]" />
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_6px_rgba(255,189,46,0.4)]" />
             <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-[0_0_6px_rgba(40,200,64,0.4)]" />
-            <span className="ml-3 text-white/30 text-xs font-medium tracking-wide hidden sm:inline">Student OS — Admin Dashboard</span>
+            <span className="ml-3 text-white/30 text-xs font-medium tracking-wide hidden sm:inline">kalm — Admin Dashboard</span>
           </div>
           {/* Dashboard screenshot */}
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#066606]/15 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700 z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1A]/15 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700 z-10 pointer-events-none" />
             <img 
               src="/dashboard-preview.png" 
-              alt="Student OS Dashboard Preview" 
+              alt="kalm Dashboard Preview" 
               className="w-full h-auto block"
             />
           </div>
@@ -308,7 +302,7 @@ const FeatureTeasers = () => {
       <div className="mb-10 md:mb-16 text-center md:text-left">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 md:mb-6 uppercase">
           {t('featureTitle')} <br className="hidden md:block" />
-          <span className="text-[#066606]">{t('featureTitleHighlight')}</span>
+          <span className="text-[#1A1A1A]">{t('featureTitleHighlight')}</span>
         </h2>
         <p className="text-lg md:text-xl text-[#fcf6e6]/60 max-w-2xl mx-auto md:mx-0">
           {t('featureDesc')}
@@ -327,18 +321,18 @@ const FeatureTeasers = () => {
 const TeaserCard = ({ title, text, image, linkText }: any) => (
   <motion.div 
     whileHover={{ y: -8 }}
-    className="group flex flex-col overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] hover:border-[#066606]/50 hover:bg-white/[0.04] transition-all duration-300"
+    className="group flex flex-col overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] hover:border-[#1A1A1A]/50 hover:bg-white/[0.04] transition-all duration-300"
   >
     <div className="aspect-[2/1] bg-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-80 z-10" />
-      <div className="absolute inset-0 bg-[#066606]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+      <div className="absolute inset-0 bg-[#1A1A1A]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
       <img src={image} alt={title} className="w-full h-full object-cover" />
     </div>
     <div className="p-6 md:p-8 flex flex-col flex-1 relative z-20 -mt-8 md:-mt-12">
-      <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 group-hover:text-[#066606] transition-colors">{title}</h3>
+      <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 group-hover:text-[#1A1A1A] transition-colors">{title}</h3>
       <p className="text-sm md:text-base text-[#fcf6e6]/60 mb-6 md:mb-8 flex-1 leading-relaxed">{text}</p>
       <div className="mt-auto">
-        <span className="inline-flex items-center text-[#066606] font-semibold text-sm md:text-base">
+        <span className="inline-flex items-center text-[#1A1A1A] font-semibold text-sm md:text-base">
           {linkText} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </span>
       </div>
@@ -393,7 +387,7 @@ const AlternatingSection = ({ title, text, img, reverse = false, btnText = 'Expl
       </div>
         <div className="flex-1 w-full mt-6 md:mt-0">
           <div className="aspect-square md:aspect-[4/3] rounded-2xl md:rounded-3xl border border-white/10 overflow-hidden relative group">
-             <div className="absolute inset-0 bg-gradient-to-br from-[#066606]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+             <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
              <img src={img} alt={title} className="w-full h-full object-cover" />
           </div>
         </div>
@@ -420,8 +414,8 @@ const SecurityCards = () => {
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {cards.map((c, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 bg-[#050505] hover:border-[#066606]/50 transition-colors group">
-              <div className="mb-4 md:mb-6 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl bg-white/5 text-[#fcf6e6] group-hover:bg-[#066606] group-hover:text-white transition-colors">
+            <div key={i} className="flex flex-col items-center text-center p-8 md:p-10 rounded-2xl md:rounded-3xl border border-white/10 bg-[#050505] hover:border-[#1A1A1A]/50 transition-colors group">
+              <div className="mb-4 md:mb-6 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl bg-white/5 text-[#fcf6e6] group-hover:bg-[#1A1A1A] group-hover:text-white transition-colors">
                 <c.icon className="h-8 w-8 md:h-10 md:w-10" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-4">{c.title}</h3>
@@ -457,17 +451,17 @@ const NewsTeasers = () => {
           <motion.div 
             key={i}
             whileHover={{ y: -8 }}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#066606]/50 transition-all duration-300"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#1A1A1A]/50 transition-all duration-300"
           >
             <div className="aspect-video relative overflow-hidden">
-              <div className="absolute inset-0 bg-[#066606]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+              <div className="absolute inset-0 bg-[#1A1A1A]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
               <img src={n.img} alt={n.title} className="w-full h-full object-cover" />
             </div>
             <div className="p-5 md:p-6 flex flex-col flex-1">
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-[#066606] transition-colors leading-tight">{n.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-[#1A1A1A] transition-colors leading-tight">{n.title}</h3>
               <p className="text-[#fcf6e6]/50 text-xs md:text-sm mb-4 md:mb-6 flex-1 leading-relaxed">{n.text}</p>
               <div className="mt-auto">
-                <span className="inline-flex items-center text-[#066606] font-semibold text-xs md:text-sm">
+                <span className="inline-flex items-center text-[#1A1A1A] font-semibold text-xs md:text-sm">
                   {t('readMore')} <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -490,7 +484,7 @@ const QuotesSlider = () => {
     { text: t('q2Text'), author: t('q2Auth'), role: t('q2Role'), image: "/portrait_monia_1773507631272.png" },
     { text: t('q3Text'), author: t('q3Auth'), role: t('q3Role'), image: "/portrait_anna_1773506900393.png" },
     { text: t('q4Text'), author: t('q4Auth'), role: t('q4Role'), image: "/portrait_maria_1773506776830.png" },
-    { text: "Zero downtime since deploying Student OS across 2,000 devices.", author: "Maria L.", role: "CTO, EdTech Solutions", image: "/portrait_maria_1773506776830.png" },
+    { text: "Zero downtime since deploying kalm across 2,000 devices.", author: "Maria L.", role: "CTO, EdTech Solutions", image: "/portrait_maria_1773506776830.png" },
     { text: "Our teachers love the instant screen casting. Game changer.", author: "Johan K.", role: "Principal, Malmö School", image: "/portrait_johan_1773506876276.png" },
     { text: "IT tickets dropped 90% in the first month. Incredible.", author: "Anna S.", role: "IT Manager, Falkenberg", image: "/portrait_anna_1773506900393.png" },
     { text: "The immutable OS means students can't break anything. Finally.", author: "Erik B.", role: "Sysadmin, Ludvika District", image: "/portrait_erik_1773506979758.png" },
@@ -528,17 +522,17 @@ const QuotesSlider = () => {
 
   const ReviewCard = ({ q, key }: { q: typeof quotes[0], key?: string }) => (
     <div className="inline-flex shrink-0 mx-2 md:mx-3 w-[320px] md:w-[380px]">
-      <div className="bg-[#0a0a0a] border border-[#066606]/20 rounded-2xl p-5 md:p-6 hover:border-[#066606]/50 transition-colors w-full whitespace-normal shadow-[0_0_15px_-3px_rgba(6,102,6,0.25)] hover:shadow-[0_0_20px_-3px_rgba(6,102,6,0.4)]">
+      <div className="bg-[#0a0a0a] border border-[#1A1A1A]/20 rounded-2xl p-5 md:p-6 hover:border-[#1A1A1A]/50 transition-colors w-full whitespace-normal shadow-[0_0_15px_-3px_rgba(6,102,6,0.25)] hover:shadow-[0_0_20px_-3px_rgba(6,102,6,0.4)]">
         <p className="text-sm md:text-base text-[#fcf6e6]/80 leading-relaxed mb-4 line-clamp-3">"{q.text}"</p>
         <div className="flex items-center gap-3">
           {q.image ? (
             <img 
               src={q.image} 
               alt={q.author} 
-              className="h-10 w-10 rounded-full object-cover shrink-0 ring-2 ring-[#066606]/40 shadow-[0_0_10px_rgba(6,102,6,0.5)]"
+              className="h-10 w-10 rounded-full object-cover shrink-0 ring-2 ring-[#1A1A1A]/40 shadow-[0_0_10px_rgba(6,102,6,0.5)]"
             />
           ) : (
-            <div className="h-10 w-10 rounded-full bg-[#066606]/20 flex items-center justify-center font-bold text-sm text-[#066606] shrink-0 ring-2 ring-[#066606]/20">
+            <div className="h-10 w-10 rounded-full bg-[#1A1A1A]/20 flex items-center justify-center font-bold text-sm text-[#1A1A1A] shrink-0 ring-2 ring-[#1A1A1A]/20">
               {q.author[0]}
             </div>
           )}
@@ -582,7 +576,7 @@ const FinalCTA = () => {
   const { t } = useTranslation();
   return (
   <section className="py-24 md:py-48 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center relative">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[60vw] h-[80vw] md:h-[60vw] max-w-[600px] max-h-[600px] bg-[#066606]/15 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[60vw] h-[80vw] md:h-[60vw] max-w-[600px] max-h-[600px] bg-[#1A1A1A]/15 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
     
     <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight mb-6 md:mb-8 relative z-10 uppercase">
       {t('ctaTitle1')} <br/> {t('ctaTitle2')}
@@ -604,11 +598,8 @@ const Footer = () => {
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-10 mb-12 md:mb-20">
         <div className="col-span-2 lg:col-span-1">
-          <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-            <div className="h-6 w-6 md:h-8 md:w-8 rounded-lg bg-gradient-to-br from-[#066606] to-[#044404] flex items-center justify-center">
-              <Shield className="h-3 w-3 md:h-4 md:w-4 text-[#fcf6e6]" />
-            </div>
-            <span className="text-lg md:text-xl font-black tracking-tight">Student OS</span>
+          <div className="flex items-center mb-4 md:mb-6">
+            <img src="/logo.png" alt="kalm logo" className="h-8 object-contain" />
           </div>
           <p className="text-[#fcf6e6]/50 text-xs md:text-sm leading-relaxed">
             {t('footerDesc')}
@@ -618,31 +609,31 @@ const Footer = () => {
         <div>
           <h4 className="font-bold mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">{t('navAbout')}</h4>
           <ul className="space-y-3 md:space-y-4 text-[#fcf6e6]/60 text-xs md:text-sm">
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('aboutFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('careersFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('privacyFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('contactFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('aboutFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('careersFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('privacyFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('contactFooter')}</a></li>
           </ul>
         </div>
         
         <div>
           <h4 className="font-bold mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">{t('toolsFooterTitle')}</h4>
           <ul className="space-y-3 md:space-y-4 text-[#fcf6e6]/60 text-xs md:text-sm">
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('osCoreFooter')}</a></li>
-            <li><a href="/dashboard" className="hover:text-[#066606] transition-colors">{t('dashboardFooter')}</a></li>
-            <li><a href="/admin" className="hover:text-[#066606] transition-colors">IT Admin Hub (God Mode)</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('classroomFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('integrationsFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('osCoreFooter')}</a></li>
+            <li><a href="/dashboard" className="hover:text-[#1A1A1A] transition-colors">{t('dashboardFooter')}</a></li>
+            <li><a href="/admin" className="hover:text-[#1A1A1A] transition-colors">IT Admin Hub (God Mode)</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('classroomFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('integrationsFooter')}</a></li>
           </ul>
         </div>
         
         <div>
           <h4 className="font-bold mb-4 md:mb-6 uppercase tracking-wider text-xs md:text-sm">{t('resourcesFooterTitle')}</h4>
           <ul className="space-y-3 md:space-y-4 text-[#fcf6e6]/60 text-xs md:text-sm">
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('blogFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('docFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('webinarsFooter')}</a></li>
-            <li><a href="#" className="hover:text-[#066606] transition-colors">{t('supportFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('blogFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('docFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('webinarsFooter')}</a></li>
+            <li><a href="#" className="hover:text-[#1A1A1A] transition-colors">{t('supportFooter')}</a></li>
           </ul>
         </div>
       </div>
@@ -662,7 +653,7 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#050505] text-[#fcf6e6] selection:bg-[#066606] selection:text-white font-sans overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#050505] text-[#fcf6e6] selection:bg-[#1A1A1A] selection:text-white font-sans overflow-x-hidden relative">
       <CursorGlow />
       <GridBackground />
       <BackgroundMotion />

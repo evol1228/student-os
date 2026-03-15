@@ -24,9 +24,9 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         <span className="font-bold text-lg tracking-tight">{student.name}</span>
         <div className="relative flex h-3 w-3">
           {isOnline && (
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
           )}
-          <span className={`relative inline-flex rounded-full h-3 w-3 ${isOnline ? 'bg-green-500' : isLocked ? 'bg-gray-800' : 'bg-red-500'}`}></span>
+          <span className={`relative inline-flex rounded-full h-3 w-3 ${isOnline ? 'bg-[#1A1A1A]' : isLocked ? 'bg-gray-800' : 'bg-red-500'}`}></span>
         </div>
       </div>
     </motion.button>

@@ -16,7 +16,7 @@ const KPI_DATA = [
   { title: "Total Devices", value: "124,684", trend: "+15%", positive: true, icon: Smartphone, color: "bg-blue-100 text-blue-800", isPrimary: false },
   { title: "Active Teachers", value: "12,379", trend: "-3%", positive: false, icon: Users, color: "bg-yellow-100 text-yellow-800", isPrimary: false },
   { title: "Network Bandwidth", value: "29.3 TB", trend: "-1%", positive: false, icon: Activity, color: "bg-purple-100 text-purple-800", isPrimary: false },
-  { title: "System Uptime", value: "99.99%", trend: "+0.01%", positive: true, icon: Shield, color: "bg-[#066606] text-[#fcf6e6]", isPrimary: true },
+  { title: "System Uptime", value: "99.99%", trend: "+0.01%", positive: true, icon: Shield, color: "bg-[#1A1A1A] text-[#fcf6e6]", isPrimary: true },
 ];
 
 const MOCK_DEVICES = [
@@ -111,14 +111,13 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcf6e6] text-[#050505] flex font-sans selection:bg-[#066606] selection:text-white">
+    <div className="min-h-screen bg-[#fcf6e6] text-[#050505] flex font-sans selection:bg-[#1A1A1A] selection:text-white">
       {/* Sidebar */}
       <aside className="w-[280px] bg-white border-r border-[#050505]/5 flex flex-col hidden lg:flex sticky top-0 h-screen">
         <div className="p-8 flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#066606] rounded-xl flex items-center justify-center shadow-lg shadow-[#066606]/20">
-            <Shield className="w-6 h-6 text-[#fcf6e6]" />
-          </div>
-          <span className="text-2xl font-black tracking-tight text-[#050505]">Student OS</span>
+        <div className="p-8 flex justify-center">
+          <img src="/logo.png" alt="kalm logo" className="h-8 object-contain" />
+        </div>
         </div>
         
         <nav className="flex-1 px-4 space-y-1">
@@ -152,7 +151,7 @@ export default function AdminDashboard() {
               type="text" 
               placeholder="Search devices, users, or alerts..." 
               onFocus={() => showToast('Global Search activated')}
-              className="w-full bg-[#fcf6e6] pl-12 pr-4 py-3 rounded-full text-sm font-medium border border-transparent focus:border-[#066606]/30 focus:outline-none focus:ring-4 focus:ring-[#066606]/10 transition-all placeholder:text-[#050505]/30"
+              className="w-full bg-[#fcf6e6] pl-12 pr-4 py-3 rounded-full text-sm font-medium border border-transparent focus:border-[#1A1A1A]/30 focus:outline-none focus:ring-4 focus:ring-[#1A1A1A]/10 transition-all placeholder:text-[#050505]/30"
             />
           </div>
           <div className="flex items-center gap-4 sm:gap-6 ml-auto">
@@ -167,9 +166,9 @@ export default function AdminDashboard() {
               <div onClick={() => { setProfileMenuOpen(!isProfileMenuOpen); }} className="flex items-center gap-3 cursor-pointer group">
                 <div className="text-right hidden sm:block">
                   <div className="text-sm font-bold text-[#050505]">{user ? user.name : 'Linda Adora'}</div>
-                  <div className="text-xs font-semibold text-[#066606] uppercase tracking-wider">{user ? user.role : 'IT Admin'}</div>
+                  <div className="text-xs font-semibold text-[#1A1A1A] uppercase tracking-wider">{user ? user.role : 'IT Admin'}</div>
                 </div>
-                <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user ? user.name : 'Linda'}&backgroundColor=066606`} alt="Admin" className="w-10 h-10 rounded-full bg-[#fcf6e6] border border-[#050505]/10 group-hover:border-[#066606]/50 transition" />
+                <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${user ? user.name : 'Linda'}&backgroundColor=066606`} alt="Admin" className="w-10 h-10 rounded-full bg-[#fcf6e6] border border-[#050505]/10 group-hover:border-[#1A1A1A]/50 transition" />
               </div>
               
               <AnimatePresence>
@@ -241,7 +240,7 @@ export default function AdminDashboard() {
           <div className="p-6 md:p-8 flex-1">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Device Fleet Management</h2>
-              <button className="bg-[#066606] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-[#055505] transition flex items-center gap-2">
+              <button className="bg-[#1A1A1A] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-[#1A1A1A] transition flex items-center gap-2">
                 <Plus size={18} /> Provision Device
               </button>
             </div>
@@ -251,12 +250,12 @@ export default function AdminDashboard() {
                     <div key={device.id} className="border border-[#050505]/10 p-5 rounded-2xl flex items-start justify-between bg-[#fcf6e6]/30 hover:bg-[#fcf6e6] transition group">
                       <div>
                         <div className="font-bold flex items-center gap-2 mb-1">
-                          <div className={`w-2 h-2 rounded-full ${device.status === 'online' ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+                          <div className={`w-2 h-2 rounded-full ${device.status === 'online' ? 'bg-[#1A1A1A] animate-pulse' : 'bg-red-500'}`}></div>
                           {device.name}
                         </div>
                         <div className="text-sm text-[#050505]/60 font-mono mb-3">{device.id}</div>
                         <div className="flex items-center gap-4 text-xs font-semibold">
-                          <span className="flex items-center gap-1"><Battery size={14} className={device.battery < 20 ? 'text-red-500' : 'text-[#066606]'} /> {device.battery}%</span>
+                          <span className="flex items-center gap-1"><Battery size={14} className={device.battery < 20 ? 'text-red-500' : 'text-[#1A1A1A]'} /> {device.battery}%</span>
                           <span className="flex items-center gap-1 opacity-60"><Clock size={14} /> {device.lastPing}</span>
                         </div>
                       </div>
@@ -328,12 +327,12 @@ function NavItem({ icon: Icon, label, active = false, onClick }: any) {
   return (
     <button onClick={(e) => { onClick?.(e); showToast(`Navigating to ${label}`); }} className={`w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl font-semibold transition-all group ${
       active 
-        ? 'bg-[#066606]/10 text-[#066606]' 
+        ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]' 
         : 'text-[#050505]/60 hover:bg-[#050505]/5 hover:text-[#050505]'
     }`}>
-      <Icon size={20} className={`${active ? 'text-[#066606]' : 'text-[#050505]/40 group-hover:text-[#050505]/60'} transition-colors`} />
+      <Icon size={20} className={`${active ? 'text-[#1A1A1A]' : 'text-[#050505]/40 group-hover:text-[#050505]/60'} transition-colors`} />
       {label}
-      {active && <div className="ml-auto w-1.5 h-6 rounded-full bg-[#066606]"></div>}
+      {active && <div className="ml-auto w-1.5 h-6 rounded-full bg-[#1A1A1A]"></div>}
     </button>
   );
 }
@@ -341,9 +340,9 @@ function NavItem({ icon: Icon, label, active = false, onClick }: any) {
 function KPICard({ title, value, trend, positive, icon: Icon, color, isPrimary }: any) {
   const { showToast } = useToast();
   return (
-    <div className={`p-6 rounded-3xl border border-[#050505]/5 flex flex-col relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1 ${isPrimary ? 'bg-[#066606] shadow-xl shadow-[#066606]/20' : 'bg-white shadow-sm'}`}>
+    <div className={`p-6 rounded-3xl border border-[#050505]/5 flex flex-col relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1 ${isPrimary ? 'bg-[#1A1A1A] shadow-xl shadow-[#1A1A1A]/20' : 'bg-white shadow-sm'}`}>
       <div className="flex justify-between items-start mb-6 z-10">
-        <div className={`flex items-center gap-1.5 text-xs font-bold px-2 py-1 rounded-lg ${positive ? (isPrimary ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700') : (isPrimary ? 'bg-white/20 text-white' : 'bg-red-100 text-red-700')}`}>
+        <div className={`flex items-center gap-1.5 text-xs font-bold px-2 py-1 rounded-lg ${positive ? (isPrimary ? 'bg-white/20 text-white' : 'bg-neutral-100 text-[#1A1A1A]') : (isPrimary ? 'bg-white/20 text-white' : 'bg-red-100 text-red-700')}`}>
           {trend}
         </div>
         <button onClick={() => showToast(`Opening ${title} details`)} className={`p-1 rounded-full ${isPrimary ? 'text-white/50 hover:text-white hover:bg-white/10' : 'text-[#050505]/20 hover:text-[#050505]/50 hover:bg-[#050505]/5'} transition-colors`}>
@@ -369,7 +368,7 @@ function LiveDeviceMap({ fullHeight = false, onExpand }: { fullHeight?: boolean,
     <div className={`bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-[#050505]/5 flex flex-col ${fullHeight ? 'h-full min-h-[500px]' : 'h-[400px]'}`}>
       <div className="flex justify-between items-center mb-6 z-10">
         <h3 className="text-xl font-bold tracking-tight flex items-center gap-2">
-          Live Device Tracking <span className="flex h-2 w-2 rounded-full bg-green-500 animate-ping"></span>
+          Live Device Tracking <span className="flex h-2 w-2 rounded-full bg-[#1A1A1A] animate-ping"></span>
         </h3>
         <button onClick={() => { showToast('Expanding Live Map...'); onExpand?.(); }} className="text-xs font-bold bg-[#fcf6e6] px-3 py-1.5 rounded-lg text-[#050505]/60 hover:text-[#050505] transition-colors">
           Expand Map
@@ -400,12 +399,12 @@ function LiveDeviceMap({ fullHeight = false, onExpand }: { fullHeight?: boolean,
             >
               <div className="relative flex items-center justify-center">
                 {isOnline && (
-                  <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-green-400 opacity-40"></span>
+                  <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-neutral-400 opacity-40"></span>
                 )}
                 {!isOnline && (
                   <span className="animate-pulse absolute inline-flex h-12 w-12 rounded-full bg-red-500 opacity-20"></span>
                 )}
-                <div className={`relative h-4 w-4 rounded-full border-2 border-slate-900 shadow-lg cursor-pointer transition-transform hover:scale-150 ${isOnline ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                <div className={`relative h-4 w-4 rounded-full border-2 border-slate-900 shadow-lg cursor-pointer transition-transform hover:scale-150 ${isOnline ? 'bg-[#1A1A1A]' : 'bg-red-500'}`}></div>
               </div>
 
               {/* Tooltip */}
@@ -416,12 +415,12 @@ function LiveDeviceMap({ fullHeight = false, onExpand }: { fullHeight?: boolean,
                   className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-48 bg-[#fcf6e6] text-[#050505] p-3 rounded-2xl shadow-xl border border-black/5 pointer-events-none z-50 text-xs"
                 >
                   <div className="font-bold flex items-center gap-2 mb-1">
-                    <MapPin size={12} className={isOnline ? 'text-green-600' : 'text-red-500'} />
+                    <MapPin size={12} className={isOnline ? 'text-[#1A1A1A]' : 'text-red-500'} />
                     {device.name}
                   </div>
                   <div className="text-[#050505]/50 mb-2 font-mono">{device.id}</div>
                   <div className="flex justify-between items-center border-t border-black/5 pt-2">
-                    <span className="flex items-center gap-1 font-semibold"><Battery size={12} className={device.battery < 20 ? 'text-red-500' : 'text-[#066606]'}/> {device.battery}%</span>
+                    <span className="flex items-center gap-1 font-semibold"><Battery size={12} className={device.battery < 20 ? 'text-red-500' : 'text-[#1A1A1A]'}/> {device.battery}%</span>
                     <span className="flex items-center gap-1 opacity-50"><Clock size={12}/> {device.lastPing}</span>
                   </div>
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#fcf6e6] rotate-45 border-r border-b border-black/5"></div>
@@ -451,8 +450,8 @@ function NetworkChart({ fullHeight = false }: { fullHeight?: boolean }) {
             <AreaChart data={NETWORK_USAGE_DATA} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorBandwidth" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#066606" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#066606" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#1A1A1A" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#1A1A1A" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
@@ -462,7 +461,7 @@ function NetworkChart({ fullHeight = false }: { fullHeight?: boolean }) {
                 contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)', background: '#050505', color: '#fcf6e6', fontWeight: 'bold' }}
                 itemStyle={{ color: '#4ade80' }}
               />
-              <Area type="monotone" dataKey="bandwidth" stroke="#066606" strokeWidth={4} fillOpacity={1} fill="url(#colorBandwidth)" />
+              <Area type="monotone" dataKey="bandwidth" stroke="#1A1A1A" strokeWidth={4} fillOpacity={1} fill="url(#colorBandwidth)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -474,9 +473,9 @@ function RolesTable({ roles, onOpenPanel }: { roles: any[], onOpenPanel: () => v
   const { showToast } = useToast();
   const getBadgeStyle = (role: string) => {
     switch(role) {
-      case 'IT Admin': return 'bg-[#066606] text-[#fcf6e6] shadow-sm';
+      case 'IT Admin': return 'bg-[#1A1A1A] text-[#fcf6e6] shadow-sm';
       case 'Mentor/Principal': return 'bg-yellow-200 text-yellow-900';
-      case 'Teacher': return 'bg-green-100 text-green-800';
+      case 'Teacher': return 'bg-neutral-100 text-[#1A1A1A]';
       case 'Student': return 'bg-gray-100 text-gray-600';
       default: return 'bg-gray-100 text-gray-800';
     }
@@ -491,7 +490,7 @@ function RolesTable({ roles, onOpenPanel }: { roles: any[], onOpenPanel: () => v
         </div>
         <button 
           onClick={onOpenPanel}
-          className="bg-[#066606] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-[#066606]/20 hover:bg-[#055505] hover:-translate-y-0.5 transition-all flex items-center gap-2"
+          className="bg-[#1A1A1A] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-[#1A1A1A]/20 hover:bg-[#1A1A1A] hover:-translate-y-0.5 transition-all flex items-center gap-2"
         >
           <Plus size={18} /> Add User / Role
         </button>
@@ -583,30 +582,30 @@ function RoleProvisioningPanel({ onClose, onAddRole }: { onClose: () => void, on
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2">
                 <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Full Name</label>
-                <input value={name} onChange={e => setName(e.target.value)} type="text" placeholder="John Doe" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:ring-2 focus:ring-[#066606]/50 transition font-medium" />
+                <input value={name} onChange={e => setName(e.target.value)} type="text" placeholder="John Doe" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/50 transition font-medium" />
               </div>
               <div className="col-span-2">
                 <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">User Email</label>
-                <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="email@school.edu" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:ring-2 focus:ring-[#066606]/50 transition font-medium" />
+                <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="email@school.edu" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/50 transition font-medium" />
               </div>
             </div>
 
             <div>
               <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Select Role Tier</label>
               <div className="grid grid-cols-2 gap-3">
-                <div onClick={() => setRole('Full God Mode')} className={`border rounded-xl p-4 cursor-pointer relative transition ${role === 'Full God Mode' ? 'border-[#066606] bg-[#066606]/5' : 'border-[#050505]/10 bg-white'}`}>
-                  <div className={`absolute top-3 right-3 w-4 h-4 rounded-full flex items-center justify-center ${role === 'Full God Mode' ? 'bg-[#066606]' : 'border border-[#050505]/20'}`}>
+                <div onClick={() => setRole('Full God Mode')} className={`border rounded-xl p-4 cursor-pointer relative transition ${role === 'Full God Mode' ? 'border-[#1A1A1A] bg-[#1A1A1A]/5' : 'border-[#050505]/10 bg-white'}`}>
+                  <div className={`absolute top-3 right-3 w-4 h-4 rounded-full flex items-center justify-center ${role === 'Full God Mode' ? 'bg-[#1A1A1A]' : 'border border-[#050505]/20'}`}>
                     {role === 'Full God Mode' && <CheckCircle2 size={10} className="text-white" />}
                   </div>
-                  <ShieldAlert className={role === 'Full God Mode' ? 'text-[#066606] mb-2' : 'text-[#050505]/40 mb-2'} size={24} />
+                  <ShieldAlert className={role === 'Full God Mode' ? 'text-[#1A1A1A] mb-2' : 'text-[#050505]/40 mb-2'} size={24} />
                   <div className="font-bold text-sm">IT Admin</div>
                   <div className="text-[10px] text-[#050505]/50 font-medium">Full God Mode</div>
                 </div>
-                <div onClick={() => setRole('Teacher Access')} className={`border rounded-xl p-4 cursor-pointer relative transition ${role === 'Teacher Access' ? 'border-[#066606] bg-[#066606]/5' : 'border-[#050505]/10 bg-white hover:border-[#050505]/30'}`}>
-                  <div className={`absolute top-3 right-3 w-4 h-4 rounded-full flex items-center justify-center ${role === 'Teacher Access' ? 'bg-[#066606]' : 'border border-[#050505]/20'}`}>
+                <div onClick={() => setRole('Teacher Access')} className={`border rounded-xl p-4 cursor-pointer relative transition ${role === 'Teacher Access' ? 'border-[#1A1A1A] bg-[#1A1A1A]/5' : 'border-[#050505]/10 bg-white hover:border-[#050505]/30'}`}>
+                  <div className={`absolute top-3 right-3 w-4 h-4 rounded-full flex items-center justify-center ${role === 'Teacher Access' ? 'bg-[#1A1A1A]' : 'border border-[#050505]/20'}`}>
                     {role === 'Teacher Access' && <CheckCircle2 size={10} className="text-white" />}
                   </div>
-                  <Users className={role === 'Teacher Access' ? 'text-[#066606] mb-2' : 'text-[#050505]/40 mb-2'} size={24} />
+                  <Users className={role === 'Teacher Access' ? 'text-[#1A1A1A] mb-2' : 'text-[#050505]/40 mb-2'} size={24} />
                   <div className="font-bold text-sm">Teacher Access</div>
                   <div className="text-[10px] text-[#050505]/50 font-medium">Time-boxed Dashboard</div>
                 </div>
@@ -623,7 +622,7 @@ function RoleProvisioningPanel({ onClose, onAddRole }: { onClose: () => void, on
                   "View Finance & Inventory"
                 ].map((perm, i) => (
                   <label key={i} onClick={() => showToast(`Toggled: ${perm}`)} className="flex items-center gap-3 p-3 bg-[#fcf6e6]/50 rounded-xl border border-[#050505]/5 cursor-pointer hover:bg-[#fcf6e6] transition">
-                    <div className={`w-5 h-5 rounded border flex items-center justify-center ${i < 2 ? 'bg-[#066606] border-[#066606]' : 'bg-white border-[#050505]/20'}`}>
+                    <div className={`w-5 h-5 rounded border flex items-center justify-center ${i < 2 ? 'bg-[#1A1A1A] border-[#1A1A1A]' : 'bg-white border-[#050505]/20'}`}>
                       {i < 2 && <CheckCircle2 size={14} className="text-white" />}
                     </div>
                     <span className="font-semibold text-sm">{perm}</span>
@@ -635,7 +634,7 @@ function RoleProvisioningPanel({ onClose, onAddRole }: { onClose: () => void, on
         </div>
 
         <div className="p-6 border-t border-[#050505]/5 bg-[#fcf6e6]/30">
-           <button onClick={handleProvision} className="w-full bg-[#066606] hover:bg-[#055505] text-[#fcf6e6] font-bold py-3.5 rounded-xl shadow-lg shadow-[#066606]/20 transition-all flex justify-center items-center gap-2">
+           <button onClick={handleProvision} className="w-full bg-[#1A1A1A] hover:bg-[#1A1A1A] text-[#fcf6e6] font-bold py-3.5 rounded-xl shadow-lg shadow-[#1A1A1A]/20 transition-all flex justify-center items-center gap-2">
              <UserCheck size={18} /> Provision Access
            </button>
         </div>
@@ -648,7 +647,7 @@ function ProfileDetails({ user }: { user: any }) {
   return (
     <div className="bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-[#050505]/5 flex flex-col gap-6">
       <h3 className="text-xl font-bold tracking-tight border-b border-[#050505]/5 pb-4 flex items-center gap-2">
-        <UserCheck size={20} className="text-[#066606]" /> My Profile
+        <UserCheck size={20} className="text-[#1A1A1A]" /> My Profile
       </h3>
       
       <div className="flex items-center gap-6">
@@ -660,30 +659,30 @@ function ProfileDetails({ user }: { user: any }) {
         </div>
         <div>
           <div className="text-sm font-bold opacity-60 uppercase tracking-widest mb-1">Profile Picture</div>
-          <button className="text-sm font-bold text-[#066606] hover:underline bg-[#066606]/10 px-4 py-2 rounded-xl transition-colors">Upload New</button>
+          <button className="text-sm font-bold text-[#1A1A1A] hover:underline bg-[#1A1A1A]/10 px-4 py-2 rounded-xl transition-colors">Upload New</button>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">First Name <span className="text-red-500">*</span></label>
-          <input type="text" defaultValue={user ? user.name.split(' ')[0] : 'Linda'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold" />
+          <input type="text" defaultValue={user ? user.name.split(' ')[0] : 'Linda'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold" />
         </div>
         <div>
           <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Last Name <span className="text-red-500">*</span></label>
-          <input type="text" defaultValue={user ? user.name.split(' ')[1] : 'Adora'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold" />
+          <input type="text" defaultValue={user ? user.name.split(' ')[1] : 'Adora'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold" />
         </div>
         <div className="col-span-2">
           <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Job Title</label>
-          <input type="text" defaultValue={user ? user.role : 'Head of IT'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold" />
+          <input type="text" defaultValue={user ? user.role : 'Head of IT'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold" />
         </div>
         <div className="col-span-2">
           <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2 flex flex-row items-center gap-1.5"><Mail size={14}/> Email Address <span className="text-red-500">*</span></label>
-          <input type="email" defaultValue={user?.email || 'admin@studentos.com'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold text-[#050505]/70" disabled />
+          <input type="email" defaultValue={user?.email || 'admin@studentos.com'} className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold text-[#050505]/70" disabled />
         </div>
         <div className="col-span-2">
           <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2 flex flex-row items-center gap-1.5"><Phone size={14}/> Phone Number</label>
-          <input type="tel" placeholder="+46 70 123 45 67" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold" />
+          <input type="tel" placeholder="+46 70 123 45 67" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold" />
         </div>
       </div>
     </div>
@@ -700,7 +699,7 @@ function SettingsView({ user }: { user: any }) {
           <h2 className="text-3xl font-bold tracking-tight mb-2 text-[#050505]">Platform Settings</h2>
           <p className="font-semibold text-[#050505]/50">Manage your profile, security, notifications, and preferences.</p>
         </div>
-        <button onClick={() => showToast('Settings Saved Successfully!')} className="bg-[#066606] text-[#fcf6e6] px-6 py-3 rounded-xl font-bold shadow-lg shadow-[#066606]/20 hover:bg-[#055505] hover:-translate-y-0.5 transition-all flex items-center gap-2">
+        <button onClick={() => showToast('Settings Saved Successfully!')} className="bg-[#1A1A1A] text-[#fcf6e6] px-6 py-3 rounded-xl font-bold shadow-lg shadow-[#1A1A1A]/20 hover:bg-[#1A1A1A] hover:-translate-y-0.5 transition-all flex items-center gap-2">
           <Save size={18} /> Save Changes
         </button>
       </div>
@@ -718,9 +717,9 @@ function SettingsView({ user }: { user: any }) {
 
           <div className="space-y-4">
             <h4 className="text-sm font-bold flex items-center gap-2"><Key size={16} /> Change Password</h4>
-            <input type="password" placeholder="Current Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-medium" />
-            <input type="password" placeholder="New Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-medium" />
-            <input type="password" placeholder="Confirm New Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-medium" />
+            <input type="password" placeholder="Current Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-medium" />
+            <input type="password" placeholder="New Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-medium" />
+            <input type="password" placeholder="Confirm New Password" className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-medium" />
           </div>
 
           <div className="pt-4 border-t border-[#050505]/5 space-y-4">
@@ -731,7 +730,7 @@ function SettingsView({ user }: { user: any }) {
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" defaultChecked className="sr-only peer" onChange={() => showToast('2FA status updated')} />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#066606]"></div>
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1A1A1A]"></div>
               </label>
             </div>
           </div>
@@ -740,7 +739,7 @@ function SettingsView({ user }: { user: any }) {
              <h4 className="text-sm font-bold flex items-center gap-2 mb-4"><Monitor size={16} /> Active Sessions</h4>
              <div className="flex items-center justify-between p-4 bg-[#fcf6e6]/50 border border-[#050505]/5 rounded-xl mb-4">
                <div>
-                  <div className="font-bold text-sm text-[#066606] flex items-center gap-2">Chrome on Windows <span className="text-[10px] bg-[#066606]/20 px-2 py-0.5 rounded-full">Current Session</span></div>
+                  <div className="font-bold text-sm text-[#1A1A1A] flex items-center gap-2">Chrome on Windows <span className="text-[10px] bg-[#1A1A1A]/20 px-2 py-0.5 rounded-full">Current Session</span></div>
                   <div className="text-xs font-semibold text-[#050505]/50">Gothenburg, Sweden • Active now</div>
                </div>
              </div>
@@ -764,13 +763,13 @@ function SettingsView({ user }: { user: any }) {
              <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-4">Alert Channels</label>
              <div className="flex gap-4">
                <label className="flex items-center gap-2 cursor-pointer font-bold text-sm">
-                 <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#066606] bg-[#fcf6e6]" /> Email
+                 <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#1A1A1A] bg-[#fcf6e6]" /> Email
                </label>
                <label className="flex items-center gap-2 cursor-pointer font-bold text-sm">
-                 <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#066606] bg-[#fcf6e6]" /> In-App
+                 <input type="checkbox" defaultChecked className="w-4 h-4 accent-[#1A1A1A] bg-[#fcf6e6]" /> In-App
                </label>
                <label className="flex items-center gap-2 cursor-pointer font-bold text-sm">
-                 <input type="checkbox" className="w-4 h-4 accent-[#066606] bg-[#fcf6e6]" /> SMS
+                 <input type="checkbox" className="w-4 h-4 accent-[#1A1A1A] bg-[#fcf6e6]" /> SMS
                </label>
              </div>
           </div>
@@ -795,9 +794,9 @@ function SettingsView({ user }: { user: any }) {
                 </label>
                 <div className="w-full h-px bg-[#050505]/5"></div>
                 <label className="flex items-start gap-3 cursor-pointer group">
-                  <input type="checkbox" defaultChecked className="w-5 h-5 mt-0.5 accent-[#066606] bg-[#fcf6e6]" /> 
+                  <input type="checkbox" defaultChecked className="w-5 h-5 mt-0.5 accent-[#1A1A1A] bg-[#fcf6e6]" /> 
                   <div>
-                    <div className="font-bold text-sm text-[#066606] mb-0.5">Security Alerts</div>
+                    <div className="font-bold text-sm text-[#1A1A1A] mb-0.5">Security Alerts</div>
                     <div className="text-xs font-medium text-[#050505]/50 leading-relaxed">Notify me of repeated failed login attempts on any device.</div>
                   </div>
                 </label>
@@ -814,21 +813,21 @@ function SettingsView({ user }: { user: any }) {
           <div className="grid grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Language</label>
-              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold appearance-none cursor-pointer">
+              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold appearance-none cursor-pointer">
                 <option value="en">English (US)</option>
                 <option value="sv">Svenska (SE)</option>
               </select>
             </div>
             <div>
               <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Time Format</label>
-              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold appearance-none cursor-pointer">
+              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold appearance-none cursor-pointer">
                 <option value="24h">24-hour (14:00)</option>
                 <option value="12h">12-hour (2:00 PM)</option>
               </select>
             </div>
             <div className="col-span-2">
               <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Timezone</label>
-              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition font-bold appearance-none cursor-pointer">
+              <select className="w-full border border-[#050505]/10 rounded-xl px-4 py-3 bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition font-bold appearance-none cursor-pointer">
                 <option value="CET">Central European Time (Gothenburg) - GMT+1</option>
                 <option value="UTC">Coordinated Universal Time - UTC</option>
                 <option value="EST">Eastern Standard Time (New York) - GMT-5</option>
@@ -840,12 +839,12 @@ function SettingsView({ user }: { user: any }) {
           <div className="pt-4 border-t border-[#050505]/5">
             <label className="block text-xs font-bold text-[#050505]/50 uppercase tracking-widest mb-2">Dashboard Default View</label>
             <div className="space-y-3 mt-4">
-               <label className="flex items-center gap-3 p-4 bg-[#fcf6e6]/50 rounded-xl border border-[#066606] cursor-pointer">
-                 <input type="radio" name="defaultView" defaultChecked className="w-5 h-5 accent-[#066606] cursor-pointer" /> 
+               <label className="flex items-center gap-3 p-4 bg-[#fcf6e6]/50 rounded-xl border border-[#1A1A1A] cursor-pointer">
+                 <input type="radio" name="defaultView" defaultChecked className="w-5 h-5 accent-[#1A1A1A] cursor-pointer" /> 
                  <span className="font-bold text-sm">Overview Analytics (Default)</span>
                </label>
                <label className="flex items-center gap-3 p-4 bg-white hover:bg-[#fcf6e6]/50 transition-colors rounded-xl border border-[#050505]/10 cursor-pointer">
-                 <input type="radio" name="defaultView" className="w-5 h-5 accent-[#066606] cursor-pointer" /> 
+                 <input type="radio" name="defaultView" className="w-5 h-5 accent-[#1A1A1A] cursor-pointer" /> 
                  <span className="font-bold text-sm">Live Fleet Map</span>
                </label>
             </div>
@@ -899,14 +898,14 @@ function MessagesWidget() {
     <div className="bg-[#fcf6e6] p-6 md:p-8 rounded-[2rem] shadow-inner border border-[#050505]/5">
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-xl font-bold tracking-tight">IT Alerts</h3>
-        <span onClick={() => showToast('Loading all alerts...')} className="text-xs font-bold text-[#066606] cursor-pointer hover:underline">View All</span>
+        <span onClick={() => showToast('Loading all alerts...')} className="text-xs font-bold text-[#1A1A1A] cursor-pointer hover:underline">View All</span>
       </div>
       
       <div className="space-y-5">
         {MESSAGES.map((msg, i) => (
           <div key={i} className="flex gap-4 group">
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-[#050505]/5 shadow-sm group-hover:border-[#066606]/30 transition">
-              <span className="font-black text-[#066606] text-sm">{msg.name[4]}</span>
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 border border-[#050505]/5 shadow-sm group-hover:border-[#1A1A1A]/30 transition">
+              <span className="font-black text-[#1A1A1A] text-sm">{msg.name[4]}</span>
             </div>
             <div>
               <div className="flex justify-between items-center mb-1">

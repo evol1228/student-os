@@ -15,14 +15,14 @@ export default function SubjectTabs({ activeTab, onTabChange }: SubjectTabsProps
           key={tab}
           onClick={() => onTabChange(tab)}
           className={`relative px-5 py-3 font-bold text-sm transition-colors whitespace-nowrap ${
-            activeTab === tab ? 'text-[#066606]' : 'text-[#050505]/40 hover:text-[#050505]/70'
+            activeTab === tab ? 'text-[#1A1A1A]' : 'text-[#050505]/40 hover:text-[#050505]/70'
           }`}
         >
           {tab}
           {activeTab === tab && (
             <motion.div
               layoutId="activeTabUnderline"
-              className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#066606] rounded-full"
+              className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#1A1A1A] rounded-full"
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             />
           )}

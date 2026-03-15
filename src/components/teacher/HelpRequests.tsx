@@ -11,8 +11,8 @@ export default function HelpRequests() {
       </div>
       <div className="space-y-3">
         {HELP_REQUESTS.map(req => (
-          <div key={req.id} className={`bg-white p-5 rounded-[2rem] border shadow-sm flex items-start gap-4 transition-all hover:shadow-md ${req.unread ? 'border-[#066606]/20' : 'border-[#050505]/5'}`}>
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 ${req.unread ? 'bg-[#066606]/10 text-[#066606]' : 'bg-[#fcf6e6] text-[#050505]/40'}`}>
+          <div key={req.id} className={`bg-white p-5 rounded-[2rem] border shadow-sm flex items-start gap-4 transition-all hover:shadow-md ${req.unread ? 'border-[#1A1A1A]/20' : 'border-[#050505]/5'}`}>
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 ${req.unread ? 'bg-[#1A1A1A]/10 text-[#1A1A1A]' : 'bg-[#fcf6e6] text-[#050505]/40'}`}>
               {req.name[0]}
             </div>
             <div className="flex-1 min-w-0">
@@ -22,7 +22,7 @@ export default function HelpRequests() {
               </div>
               <p className="text-sm text-[#050505]/60 font-medium leading-relaxed">{req.msg}</p>
             </div>
-            {req.unread && <span className="w-2.5 h-2.5 rounded-full bg-[#066606] shrink-0 mt-2" />}
+            {req.unread && <span className="w-2.5 h-2.5 rounded-full bg-[#1A1A1A] shrink-0 mt-2" />}
           </div>
         ))}
       </div>

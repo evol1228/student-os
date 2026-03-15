@@ -33,7 +33,7 @@ export default function FloatingDock({ roster, onOpenExam }: FloatingDockProps) 
 
   return (
     <div className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-40">
-      <div className="bg-[#066606]/95 backdrop-blur-xl border border-white/20 p-2 rounded-full shadow-2xl flex items-center gap-1 sm:gap-2 relative">
+      <div className="bg-[#1A1A1A]/95 backdrop-blur-xl border border-white/20 p-2 rounded-full shadow-2xl flex items-center gap-1 sm:gap-2 relative">
         <DockButton icon={<Lock size={20} />} label="Lock Class" onClick={() => showToast("Class locked successfully.")} />
         <DockButton icon={<FileText size={20} />} label="Force Exam" onClick={onOpenExam} />
         <DockButton icon={<MonitorUp size={20} />} label="Cast Screen" onClick={() => setCastOpen(!castOpen)} />
@@ -50,12 +50,12 @@ export default function FloatingDock({ roster, onOpenExam }: FloatingDockProps) 
             >
               <h4 className="font-bold text-sm mb-3">Cast Screen</h4>
               <button onClick={() => { showToast('Casting your screen to all devices...'); setCastOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-[#fcf6e6] rounded-xl font-semibold text-sm transition flex items-center gap-3">
-                <MonitorUp size={16} className="text-[#066606]" /> Cast My Screen
+                <MonitorUp size={16} className="text-[#1A1A1A]" /> Cast My Screen
               </button>
               <button onClick={() => { showToast('Select a student to cast...'); setCastOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-[#fcf6e6] rounded-xl font-semibold text-sm transition flex items-center gap-3 mb-2">
-                <Users size={16} className="text-[#066606]" /> Cast a Student
+                <Users size={16} className="text-[#1A1A1A]" /> Cast a Student
               </button>
-              <select onChange={(e) => { if(e.target.value) { showToast(`Casting ${e.target.value}'s screen`); setCastOpen(false); }}} className="w-full border border-[#050505]/10 rounded-xl px-3 py-2.5 text-sm font-medium bg-[#fcf6e6]/50 focus:outline-none focus:border-[#066606]/50 transition">
+              <select onChange={(e) => { if(e.target.value) { showToast(`Casting ${e.target.value}'s screen`); setCastOpen(false); }}} className="w-full border border-[#050505]/10 rounded-xl px-3 py-2.5 text-sm font-medium bg-[#fcf6e6]/50 focus:outline-none focus:border-[#1A1A1A]/50 transition">
                 <option value="">Pick a student...</option>
                 {roster.filter(s => s.status === 'online').map(s => (
                   <option key={s.id} value={s.name}>{s.name}</option>

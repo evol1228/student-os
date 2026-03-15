@@ -3,7 +3,7 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-accent: #066606;
+  --color-brand-accent: #1A1A1A;
   --color-brand-base: #fcf6e6;
   --color-brand-dark: #050505;
   --animate-slide: slide 40s linear infinite;

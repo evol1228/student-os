@@ -31,7 +31,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
               className="bg-black/[.87] backdrop-blur-md text-[#fcf6e6] px-5 py-3.5 rounded-3xl shadow-2xl flex items-center gap-4 font-bold text-sm border border-white/20 pointer-events-auto"
             >
-              <CheckCircle2 size={20} className="text-green-400" />
+              <CheckCircle2 size={20} className="text-[#1A1A1A]" />
               {toast.message}
               <button onClick={() => setToast(null)} className="ml-2 text-white/50 hover:text-white transition-colors">
                 <X size={16} />

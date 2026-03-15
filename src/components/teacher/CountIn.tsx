@@ -18,7 +18,7 @@ export default function CountIn({ roster, className, onUpdateAttendance }: Count
         {roster.map((student, i) => (
           <div key={student.id} className={`flex items-center justify-between px-6 py-4 ${i < roster.length - 1 ? 'border-b border-[#050505]/5' : ''} hover:bg-[#fcf6e6]/50 transition-colors`}>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#fcf6e6] rounded-full flex items-center justify-center font-black text-[#066606] border border-[#050505]/5">
+              <div className="w-10 h-10 bg-[#fcf6e6] rounded-full flex items-center justify-center font-black text-[#1A1A1A] border border-[#050505]/5">
                 {student.name[0]}
               </div>
               <span className="font-bold">{student.name}</span>
@@ -27,7 +27,7 @@ export default function CountIn({ roster, className, onUpdateAttendance }: Count
               {(['present', 'absent', 'late', 'excused'] as const).map(status => {
                 const isActive = student.attendance === status;
                 const colors: Record<string, string> = {
-                  present: isActive ? 'bg-green-500 text-white border-green-500' : 'border-[#050505]/10 text-[#050505]/50 hover:border-green-300 hover:text-green-600',
+                  present: isActive ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]' : 'border-[#050505]/10 text-[#050505]/50 hover:border-neutral-300 hover:text-[#1A1A1A]',
                   absent: isActive ? 'bg-red-500 text-white border-red-500' : 'border-[#050505]/10 text-[#050505]/50 hover:border-red-300 hover:text-red-600',
                   late: isActive ? 'bg-yellow-500 text-white border-yellow-500' : 'border-[#050505]/10 text-[#050505]/50 hover:border-yellow-300 hover:text-yellow-600',
                   excused: isActive ? 'bg-blue-500 text-white border-blue-500' : 'border-[#050505]/10 text-[#050505]/50 hover:border-blue-300 hover:text-blue-600',

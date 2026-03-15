@@ -44,7 +44,7 @@ export default function StudentDashboard() {
   const filteredPosts = activeTab === 'All' ? FEED_POSTS : FEED_POSTS.filter(p => p.subject === activeTab);
 
   return (
-    <div className="h-screen bg-[#fcf6e6] text-[#050505] font-sans selection:bg-[#066606] selection:text-white flex overflow-hidden">
+    <div className="h-screen bg-[#fcf6e6] text-[#050505] font-sans selection:bg-[#1A1A1A] selection:text-white flex overflow-hidden">
       
       {/* Column 1: Left Sidebar */}
       <StudentSidebar user={user} activeView={activeView} onViewChange={setActiveView} onLogout={handleLogout} />

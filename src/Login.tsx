@@ -16,16 +16,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcf6e6] flex flex-col items-center justify-center p-6 selection:bg-[#066606] selection:text-white">
+    <div className="min-h-screen bg-[#fcf6e6] flex flex-col items-center justify-center p-6 selection:bg-[#1A1A1A] selection:text-white">
       <div className="w-full max-w-md bg-white p-8 md:p-10 rounded-[2rem] shadow-xl border border-black/5 relative overflow-hidden">
         {/* Background Accent */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-[#066606]"></div>
+        <div className="absolute top-0 left-0 w-full h-2 bg-[#1A1A1A]"></div>
 
         <div className="flex flex-col items-center mb-8">
-           <div className="w-16 h-16 bg-[#066606] rounded-2xl flex items-center justify-center shadow-lg shadow-[#066606]/30 mb-6">
-             <Shield className="w-8 h-8 text-[#fcf6e6]" />
+           <div className="mb-6 flex justify-center">
+             <img src="/logo.png" alt="kalm logo" className="h-10 object-contain" />
            </div>
-           <h1 className="text-3xl font-black tracking-tight text-[#050505]">Student OS</h1>
            <p className="text-sm font-semibold text-[#050505]/50 mt-2 text-center">Select a test account to log in.</p>
         </div>
 
@@ -34,16 +33,16 @@ export default function Login() {
             <button
               key={user.role}
               onClick={() => handleLogin(user)}
-              className="w-full text-left p-4 rounded-xl border border-black/10 hover:border-[#066606]/50 hover:bg-[#066606]/5 transition-all group relative overflow-hidden flex items-center justify-between"
+              className="w-full text-left p-4 rounded-xl border border-black/10 hover:border-[#1A1A1A]/50 hover:bg-[#1A1A1A]/5 transition-all group relative overflow-hidden flex items-center justify-between"
             >
               <div>
-                <div className="font-bold text-[#050505] group-hover:text-[#066606] transition-colors">{user.name}</div>
+                <div className="font-bold text-[#050505] group-hover:text-[#1A1A1A] transition-colors">{user.name}</div>
                 <div className="text-xs font-semibold text-[#050505]/50">{user.email}</div>
               </div>
               <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                user.role === 'IT Admin' ? 'bg-[#066606] text-white' :
+                user.role === 'IT Admin' ? 'bg-[#1A1A1A] text-white' :
                 user.role === 'Mentor' ? 'bg-yellow-200 text-yellow-900' :
-                user.role === 'Teacher' ? 'bg-green-100 text-green-800' :
+                user.role === 'Teacher' ? 'bg-neutral-100 text-[#1A1A1A]' :
                 'bg-gray-100 text-gray-800'
               }`}>
                 {user.role}

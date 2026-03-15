@@ -25,7 +25,7 @@ export default function RightSidebar() {
                 transition={{ delay: i * 0.05 }}
                 className={`relative pl-6 py-2.5 rounded-xl transition-all ${
                   block.status === 'active'
-                    ? 'bg-[#066606]/5'
+                    ? 'bg-[#1A1A1A]/5'
                     : block.status === 'done'
                       ? 'opacity-40'
                       : ''
@@ -34,7 +34,7 @@ export default function RightSidebar() {
                 {/* Timeline dot */}
                 <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                   block.status === 'active'
-                    ? 'border-[#066606] bg-[#066606]'
+                    ? 'border-[#1A1A1A] bg-[#1A1A1A]'
                     : block.status === 'done'
                       ? 'border-[#050505]/20 bg-[#050505]/10'
                       : 'border-[#050505]/15 bg-white'
@@ -44,7 +44,7 @@ export default function RightSidebar() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className={`text-sm font-bold leading-tight ${block.status === 'active' ? 'text-[#066606]' : ''}`}>
+                    <div className={`text-sm font-bold leading-tight ${block.status === 'active' ? 'text-[#1A1A1A]' : ''}`}>
                       {block.label}
                     </div>
                     {block.teacher && (
@@ -52,7 +52,7 @@ export default function RightSidebar() {
                     )}
                   </div>
                   <div className="text-right">
-                    <div className={`text-[10px] font-mono font-bold ${block.status === 'active' ? 'text-[#066606]' : 'text-[#050505]/40'}`}>
+                    <div className={`text-[10px] font-mono font-bold ${block.status === 'active' ? 'text-[#1A1A1A]' : 'text-[#050505]/40'}`}>
                       {block.time.split(' – ')[0]}
                     </div>
                     <div className="text-[9px] text-[#050505]/30 font-medium">{block.room}</div>
@@ -61,8 +61,8 @@ export default function RightSidebar() {
 
                 {block.status === 'active' && (
                   <div className="mt-1.5 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#066606] animate-pulse" />
-                    <span className="text-[9px] font-bold text-[#066606] uppercase tracking-wider">Happening Now</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A] animate-pulse" />
+                    <span className="text-[9px] font-bold text-[#1A1A1A] uppercase tracking-wider">Happening Now</span>
                   </div>
                 )}
               </motion.div>

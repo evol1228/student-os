@@ -31,7 +31,7 @@ export default function AnnouncementsEditor() {
           <button onClick={() => showToast('File browser opened')} className="flex items-center gap-2 text-sm font-semibold text-[#050505]/50 hover:text-[#050505] transition">
             <Paperclip size={16} /> Attach File
           </button>
-          <button onClick={() => showToast('Post published to Learn Log!')} className="bg-[#066606] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-[#066606]/20 hover:bg-[#055505] transition-all text-sm flex items-center gap-2">
+          <button onClick={() => showToast('Post published to Learn Log!')} className="bg-[#1A1A1A] text-[#fcf6e6] px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-[#1A1A1A]/20 hover:bg-[#1A1A1A] transition-all text-sm flex items-center gap-2">
             <Send size={16} /> Publish
           </button>
         </div>
@@ -55,8 +55,8 @@ export default function AnnouncementsEditor() {
             {post.files.length > 0 && (
               <div className="flex flex-wrap gap-2 pt-2">
                 {post.files.map((f, i) => (
-                  <button key={i} onClick={() => showToast(`Opening ${f.name}`)} className="flex items-center gap-2 bg-[#fcf6e6] px-4 py-2 rounded-xl text-xs font-bold text-[#050505]/70 border border-[#050505]/5 hover:border-[#066606]/30 transition">
-                    <FileText size={14} className="text-[#066606]" /> {f.name} <span className="opacity-40">{f.size}</span>
+                  <button key={i} onClick={() => showToast(`Opening ${f.name}`)} className="flex items-center gap-2 bg-[#fcf6e6] px-4 py-2 rounded-xl text-xs font-bold text-[#050505]/70 border border-[#050505]/5 hover:border-[#1A1A1A]/30 transition">
+                    <FileText size={14} className="text-[#1A1A1A]" /> {f.name} <span className="opacity-40">{f.size}</span>
                   </button>
                 ))}
               </div>
