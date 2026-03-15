@@ -151,7 +151,7 @@ const Header = () => {
         {/* === Desktop Header (Hidden on Mobile) === */}
         <div className="hidden md:flex w-full h-full items-center justify-between">
           <div className="flex items-center shrink-0">
-            <img src="/logo.png" alt="kalm logo" className="h-8 md:h-10 object-contain" />
+            <img src="/kalm_logo.png" alt="kalm logo" className="h-8 md:h-10 object-contain" />
           </div>
 
           <nav className="flex items-center gap-8 text-sm font-semibold text-[#fcf6e6]/70">
@@ -179,7 +179,7 @@ const Header = () => {
         {/* === Mobile Header (Hidden on Desktop) === */}
         <div className="flex md:hidden w-full h-full items-center justify-between relative">
           <div className="flex items-center shrink-0">
-            <img src="/logo.png" alt="kalm logo" className="h-7 object-contain" />
+            <img src="/kalm_logo.png" alt="kalm logo" className="h-7 object-contain" />
           </div>
 
           {/* Absolute centered flag element */}
@@ -599,7 +599,7 @@ const Footer = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-10 mb-12 md:mb-20">
         <div className="col-span-2 lg:col-span-1">
           <div className="flex items-center mb-4 md:mb-6">
-            <img src="/logo.png" alt="kalm logo" className="h-8 object-contain" />
+            <img src="/kalm_logo.png" alt="kalm logo" className="h-8 object-contain" />
           </div>
           <p className="text-[#fcf6e6]/50 text-xs md:text-sm leading-relaxed">
             {t('footerDesc')}

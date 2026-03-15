@@ -23,7 +23,7 @@ export default function Login() {
 
         <div className="flex flex-col items-center mb-8">
            <div className="mb-6 flex justify-center">
-             <img src="/logo.png" alt="kalm logo" className="h-10 object-contain" />
+             <img src="/kalm_logo.png" alt="kalm logo" className="h-10 object-contain" />
            </div>
            <p className="text-sm font-semibold text-[#050505]/50 mt-2 text-center">Select a test account to log in.</p>
         </div>

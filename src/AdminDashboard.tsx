@@ -116,7 +116,7 @@ export default function AdminDashboard() {
       <aside className="w-[280px] bg-white border-r border-[#050505]/5 flex flex-col hidden lg:flex sticky top-0 h-screen">
         <div className="p-8 flex items-center gap-3">
         <div className="p-8 flex justify-center">
-          <img src="/logo.png" alt="kalm logo" className="h-8 object-contain" />
+          <img src="/kalm_logo.png" alt="kalm logo" className="h-8 object-contain" />
         </div>
         </div>
         
